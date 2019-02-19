@@ -1,0 +1,18 @@
+= Useful Links
+
+[width="100%"]
+|==========================
+|MicroProfile Starter   |https://start.microprofile.io/  
+|MicroProfile           |https://microprofile.io
+|TomEE                  |http://tomee.apache.org/
+|Payara                 |https://payara.fish
+|Tomitribe              |https://tomitribe.com
+|Thorntail              |https://thorntail.io
+|Helidon                |https://helidon.io
+|KumuluzEE              |https://ee.kumuluz.com/
+|Open Liberty           |https://openliberty.io
+|Eclipse Foundation     |https://www.eclipse.org/
+|OpenJDK                |https://openjdk.java.net/
+|Maven                  |http://maven.apache.org/
+|NetBeans               |http://netbeans.apache.org/
+|==========================

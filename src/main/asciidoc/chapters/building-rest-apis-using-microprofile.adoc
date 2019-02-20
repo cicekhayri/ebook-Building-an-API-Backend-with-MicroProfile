@@ -94,14 +94,85 @@ Open the terminal and navigate to the project directory and type the following c
 mvn clean package payara-micro:start
 ----
 
-Download and install Postman (https://www.getpostman.com). When you have done that open it and we will test our api.
-
-
 We start with the GET method.
+
+[source,bash]
+----
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/restapi/books
+----
+
 Because we don’t have any objects in the database, we will only get an empty list.
+
+`Output`
+[source,bash]
+----
+[]%
+----
 Time to create Book objects in the database.
+
+[source,bash]
+----
+curl -i -X POST -H "Content-Type:application/json" \
+  --data '{"title":"This is my test book","description":"this is my book description",
+            "isbn": "12xxxxxxxx", "publisher": "None Yet", "language":"English","author":"Hayri Cicek",
+             "price": "0.00","pages":"0"}' http://localhost:8080/restapi/books
+----
+
+`Output`
+[source, bash]
+----
+HTTP/1.1 200 OK
+Server: Payara Micro #badassfish
+Content-Length: 0
+X-Frame-Options: SAMEORIGIN
+----
+
 Now that we have created one book object, we can go back and try the GET method again to se that we get the book object from the database.
-Now, we have a list with one object returned to us from the database. Create another one and try to get a single object back. 
+
+[source, bash]
+----
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/restapi/books
+----
+
+`Output`
+[source, bash]
+----
+HTTP/1.1 200 OK
+Server: Payara Micro #badassfish
+Content-Type: application/json
+Content-Length: 171
+X-Frame-Options: SAMEORIGIN
+
+[{"description":"this is my book description","id":1,"isbn":"12xxxxxxxx","language":"English","pages":0,"price":0.0,"publisher":"None Yet","title":"This is my test book"}]%
+----
+
+Now, we have a list with one object returned to us from the database. Create another one and try to get a single object back.
+
+[source, bash]
+----
+curl -i -X POST -H "Content-Type:application/json" \
+  --data '{"title":"This is my second test book","description":"this is my second book description",
+            "isbn": "13xxxxxxxx", "publisher": "None Yet", "language":"English","author":"Hayri Cicek",
+             "price": "0.00","pages":"0"}' http://localhost:8080/restapi/books
+----
+
+[source, bash]
+----
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/restapi/books/2
+----
+
+`Output`
+[source, bash]
+----
+HTTP/1.1 200 OK
+Server: Payara Micro #badassfish
+Content-Type: application/json
+Content-Length: 183
+X-Frame-Options: SAMEORIGIN
+
+{"description":"this is my second book description","id":2,"isbn":"13xxxxxxxx","language":"English","pages":0,"price":0.0,"publisher":"None Yet","title":"This is my second test book"}%
+----
+
 The GET and the POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
 Open BookStoreEndpoint and add the following for updating an existing object.
 
@@ -144,11 +215,59 @@ Here we annotate the delete method with `@DELETE` annotation, which maps HTTP DE
 We pass an id to this method, which finds and deletes the Book objects whose id match.
 Now in the terminal, if you don’t already have quite the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.
 
-Open Postman and try both the Update and Delete functions.
+Open another terminal window and try both the Update and Delete functions.
 
-Here, I will update the Book with id 51 and if you don’t have Book object with id 51 then take one that you have in your database, now if you get all objects again you will see that the object is updated.
-Next is to try the DELETE method, open a new Postman tab and make it look like below image.
+[source, bash]
+----
+curl -H 'Content-Type: application/json' -X PUT \
+-d '{"title":"This is my second test book updated","description":"this is my second book description updated",
+            "isbn": "13xxxxxxxx", "publisher": "None Yet", "language":"English","author":"Hayri Cicek",
+             "price": "1.00","pages":"0"}' http://localhost:8080/restapi/books/2
+----
+
+[source, bash]
+----
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/restapi/books/2
+----
+
+`Output`
+[source, bash]
+----
+HTTP/1.1 200 OK
+Server: Payara Micro #badassfish
+Content-Type: application/json
+Content-Length: 199
+X-Frame-Options: SAMEORIGIN
+
+{"description":"this is my second book description updated","id":2,"isbn":"13xxxxxxxx","language":"English","pages":0,"price":1.0,"publisher":"None Yet","title":"This is my second test book updated"}%
+----
+
+Here, I will update the Book with id 2 and if you don’t have Book object with id 2 then take one that you have in your database, now if you get all objects again you will see that the object is updated.
+Next is to try the DELETE method, open a new terminal tab and use the command below.
+
+[source, bash]
+----
+curl -X DELETE http://localhost:8080/restapi/books/2
+----
 Now when you get the book list again, now the book object is deleted.
+
+[source, bash]
+----
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/restapi/books
+----
+
+`Output`
+
+[source, bash]
+----
+HTTP/1.1 200 OK
+Server: Payara Micro #badassfish
+Content-Type: application/json
+Content-Length: 171
+X-Frame-Options: SAMEORIGIN
+
+[{"description":"this is my book description","id":1,"isbn":"12xxxxxxxx","language":"English","pages":0,"price":0.0,"publisher":"None Yet","title":"This is my test book"}]%
+----
 
 == Summary
 In this chapter we learned how to create a REST api using MicroProfile and Postman to test our API.

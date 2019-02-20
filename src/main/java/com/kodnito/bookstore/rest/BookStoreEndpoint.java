@@ -14,6 +14,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Metered;
 
 @RequestScoped
 @Path("books")
@@ -29,6 +32,12 @@ public class BookStoreEndpoint {
         return Response.ok(bookService.getAll()).build();
     }
 
+    @Counted(unit = MetricUnits.NONE,
+            name = "getBook",
+            absolute = true,
+            monotonic = true,
+            displayName = "get single book",
+            description = "Monitor how many times getBook method was called")
     @GET
     @Path("{id}")
     public Response getBook(@PathParam("id") Long id) {
@@ -37,6 +46,10 @@ public class BookStoreEndpoint {
         return Response.ok(book).build();
     }
 
+    @Metered(name = "create-books",
+            unit = MetricUnits.MILLISECONDS,
+            description = "Monitor the rate events occured",
+            absolute = true)
     @POST
     public Response create(Book book) {
         bookService.create(book);

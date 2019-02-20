@@ -1,0 +1,8 @@
+= Getting Started
+
+== Preparation
+
+Before you can start, you need to install JDK and Maven.
+
+1. JDK: Download the JDK from https://openjdk.java.net/install/index.html
+1. Follow the instructions at https://maven.apache.org/download.cgi to install Maven.

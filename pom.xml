@@ -20,7 +20,7 @@
     <groupId>com.kodnito</groupId>
     <artifactId>api-backend-microprofile-ebook</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     
     <name>Building an API Backend with MicroProfile</name>
     <description>Ebook - Building an API Backend with MicroProfile</description>
@@ -85,6 +85,25 @@
             <organization>Kodnito</organization>
         </developer>
     </developers>
+
+    <dependencies>
+        <!-- Jave ee -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- MicroProfile -->
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>2.1</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+        
+    </dependencies>
 
     <build>
         

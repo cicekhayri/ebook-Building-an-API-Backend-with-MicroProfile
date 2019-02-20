@@ -270,4 +270,4 @@ X-Frame-Options: SAMEORIGIN
 ----
 
 == Summary
-In this chapter we learned how to create a REST api using MicroProfile and Postman to test our API.
+In this chapter we learned how to create a REST api using MicroProfile and curl to test our API.

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2019 Hayri Cirek
+  ~ Copyright (c) 2019 Hayri Cicek
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@
 
     <developers>
         <developer>
-            <name>Hayri Cirek</name>
+            <name>Hayri Cicek</name>
             <url>https://www.kodnito.com</url>
             <organization>Kodnito</organization>
         </developer>

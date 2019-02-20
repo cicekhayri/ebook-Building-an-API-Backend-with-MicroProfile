@@ -1,0 +1,154 @@
+== Building REST APIs Using MicroProfile
+
+REST stands for representational state transfer and is a software architecture style for creating web services. 
+The primary used HTTP verbs are GET, POST, PUT, PATCH and DELETE. 
+
+[width="100%"]
+|========================================================
+|GET        |Get a list of resources or a single resources
+|POST       |Create a new resource
+|PUT        |Update/Replace a existing resource
+|PATCH      |Update/Modify a existing resource
+|DELETE     |Delete a existing resource
+|========================================================
+
+Now how should we define URIs for our book store application:
+
+[width="100%"]
+|========================================================
+|GET        |http://localhost:8080/restapi/books    |Return a list of all Books
+|GET        |http://localhost:8080/restapi/books/1  |Return the Book whose ID is 1
+|POST       |http://localhost:8080/restapi/books    |Create a new Book resource
+|PUT        |http://localhost:8080/restapi/books/1  |Update the Book whose ID is 1
+|DELETE     |http://localhost:8080/restapi/books/1  |Delete the Book whose ID is 1
+|========================================================
+
+Now that we have defined the book store URIs, it’s time to start coding. 
+Create a new file called `BookStoreEndpoint.java` inside `com.kodnito.bookstore.rest`. 
+We start creating the GET methods, open the `BookStoreEndpoint.java` file and add the following:
+
+[source,java]
+----
+package com.kodnito.bookstore.rest;
+
+import com.kodnito.bookstore.entity.Book;
+import com.kodnito.bookstore.service.BookService;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+
+@RequestScoped
+@Path("books")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class BookStoreEndpoint {
+    
+    @Inject
+    BookService bookService;
+    
+    @GET
+    public Response getAll() {
+        return Response.ok(bookService.getAll()).build();
+    }
+
+    @GET
+    @Path("{id}")
+    public Response getBook(@PathParam("id") Long id) {
+        Book book = bookService.findById(id);
+
+        return Response.ok(book).build();
+    }
+}
+----
+
+We start with the annotations we have added, the `@RequestScoped` annotation indicates that this class will be created once every request. 
+`@Path` annotation identifies the URI path to which the resource responds. 
+`@Produces` annotation will automatically convert the response to JSON format and `@Consumes` annotation will automatically convert the posted JSON string here to Book object.
+We inject the BookService with the `@Inject` annotation. We annotated the getAll method with `@GET` annotation, which maps /books HTTP GET request to the method and will retrieve all the books from the database and return the entire list.
+Parameters are accessed with the `@PathParam` annotation. 
+
+Next, we will create the POST method, add the following to the BookStoreEndpoint.java:
+
+[source,java]
+----
+@POST
+public Response create(Book book) {
+    bookService.create(book);
+    return Response.ok().build();
+}
+----
+
+The create method is annotated with the `@POST` annotation, which indicates that HTTP POST request are mapped to this method. 
+Now that we have GET and POST methods done we can test that our application works. 
+Open the terminal and navigate to the project directory and type the following command to start our application.
+
+[source,bash]
+----
+mvn clean package payara-micro:start
+----
+
+Download and install Postman (https://www.getpostman.com). When you have done that open it and we will test our api.
+
+
+We start with the GET method.
+Because we don’t have any objects in the database, we will only get an empty list.
+Time to create Book objects in the database.
+Now that we have created one book object, we can go back and try the GET method again to se that we get the book object from the database.
+Now, we have a list with one object returned to us from the database. Create another one and try to get a single object back. 
+The GET and the POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
+Open BookStoreEndpoint and add the following for updating an existing object.
+
+[source,java]
+----
+@PUT
+@Path("{id}")
+public Response update(@PathParam("id") Long id, Book book) {
+    Book updateBook = bookService.findById(id);
+
+    updateBook.setIsbn(book.getIsbn());
+    updateBook.setDescription(book.getDescription());
+    updateBook.setLanguage(book.getLanguage());
+    updateBook.setPages(book.getPages());
+    updateBook.setPrice(book.getPrice());
+    updateBook.setPublisher(book.getPublisher());
+    updateBook.setTitle(book.getTitle());
+
+    bookService.update(updateBook);
+
+    return Response.ok().build();
+}
+----
+
+Here we annotate the update method with `@PUT` annotation, which maps HTTP PUT verb request to this method and the method takes two parameters, id and Book object.
+Next is to add the Delete method to the API, open BookStoreEndpoint.java and add the following:
+
+[source,java]
+----
+@DELETE
+@Path("{id}")
+public Response delete(@PathParam("id") Long id) {
+    Book getBook = bookService.findById(id);
+    bookService.delete(getBook);
+    return Response.ok().build();
+}
+----
+
+Here we annotate the delete method with `@DELETE` annotation, which maps HTTP DELETE verb request to this method. 
+We pass an id to this method, which finds and deletes the Book objects whose id match.
+Now in the terminal, if you don’t already have quite the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.
+
+Open Postman and try both the Update and Delete functions.
+
+Here, I will update the Book with id 51 and if you don’t have Book object with id 51 then take one that you have in your database, now if you get all objects again you will see that the object is updated.
+Next is to try the DELETE method, open a new Postman tab and make it look like below image.
+Now when you get the book list again, now the book object is deleted.
+
+== Summary
+In this chapter we learned how to create a REST api using MicroProfile and Postman to test our API.

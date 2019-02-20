@@ -178,6 +178,8 @@ The `persistence.xml` file defines what provider to be used, the name of the per
 Now that we have everything configured, it’s time to start working on our API.
 
 == Entity
+A Entity is a Java class that is marked with annotations that represent objects in a database. 
+Create a new file called Book.java inside com.kodnito.bookstore.entity and make it look like this:
 
 [source,java]
 ----
@@ -190,3 +192,20 @@ include::{javadir}/com/kodnito/bookstore/entity/Book.java[]
 * `@NamedQuery` annotation defines query with a name
 * `@Id` annotation is used to define the primary key and the Id property is also annotated with `@GeneratedValue` to indicate that the Id should be generated automatically.
 
+== Business Logic
+It’s time to concentrate on the business logic code. It’s always best to separate the code that each class does it’s own job. We will now create the BookService.java file for interacting with the database.                                                                                                                         Now create the BookService.java file inside com.kodnito.bookstore.service package and make it look like:
+
+[source,java]
+----
+include::{javadir}/com/kodnito/bookstore/service/BookService.java[]
+----
+
+What does everything mean in this file, we start at the beginning of the file with the `@ApplicationScoped` annotation. 
+When an object is annotated with the `@ApplicationScoped` annotation, is created once for the duration of the application. 
+`@PersistenceContext` annotated injects the EntityManager to be used at runtime. We have created five method to interact with the database. 
+getAll method will get all the objects from the books table, when we want a single object we will use the findById method with an id. 
+Update method like it says will update an existing object, create method will create a new Book object and delete will delete an existing Book object from the database. 
+The `@Transactional` annotation provides the application the ability to control the transaction boundaries.
+
+== Summary
+In this chapter, we created our application from maven archetype, added the dependencies we need for our application, configured our application, created entities classes and created our business logic code for interacting with the database.

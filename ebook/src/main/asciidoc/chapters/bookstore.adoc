@@ -183,7 +183,7 @@ Create a new file called Book.java inside com.kodnito.bookstore.entity and make 
 
 [source,java]
 ----
-include::{javadir}/com/kodnito/bookstore/entity/Book.java[]
+include::{bookstore_java_dir}/com/kodnito/bookstore/entity/Book.java[]
 ----
 
 * `@Entity` annotation indicates that it is a JPA entity
@@ -197,7 +197,7 @@ It’s time to concentrate on the business logic code. It’s always best to sep
 
 [source,java]
 ----
-include::{javadir}/com/kodnito/bookstore/service/BookService.java[]
+include::{bookstore_java_dir}/com/kodnito/bookstore/service/BookService.java[]
 ----
 
 What does everything mean in this file, we start at the beginning of the file with the `@ApplicationScoped` annotation. 

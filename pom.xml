@@ -20,22 +20,17 @@
     <groupId>com.kodnito</groupId>
     <artifactId>api-backend-microprofile-ebook</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     
-    <name>Building an API Backend with MicroProfile</name>
+    <name>API Backend with MicroProfile</name>
     <description>Ebook - Building an API Backend with MicroProfile</description>
     <url>https://www.kodnito.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         
-        <asciidoctor-maven.version>1.5.7.1</asciidoctor-maven.version>
-        <asciidoctorj-pdf.version>1.5.0-alpha.16</asciidoctorj-pdf.version>
-        
-        <license>Apache License v 2.0</license>
-        <maven.build.timestamp.format>MMMM dd, yyyy</maven.build.timestamp.format>
-        <revisiondate>${maven.build.timestamp}</revisiondate>
-        <revremark>Draft</revremark>
     </properties>
 
     <licenses>
@@ -86,76 +81,10 @@
         </developer>
     </developers>
 
-    <dependencies>
-        <!-- Jave ee -->
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>8.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- MicroProfile -->
-        <dependency>
-            <groupId>org.eclipse.microprofile</groupId>
-            <artifactId>microprofile</artifactId>
-            <version>2.1</version>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-        
-    </dependencies>
+    <modules>
+        <module>ebook</module>
+        <module>bookstore</module>
+        <module>bookstore-client</module>
+    </modules>
 
-    <build>
-        
-        <plugins>
-            
-            <plugin>
-                <groupId>org.asciidoctor</groupId>
-                <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>${asciidoctor-maven.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctorj-pdf</artifactId>
-                        <version>${asciidoctorj-pdf.version}</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>generate-pdf-doc</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <backend>pdf</backend>
-                            <attributes>
-                                <revnumber>${project.version}</revnumber>
-                                <revremark>${revremark}</revremark>
-                                <revdate>${revisiondate}</revdate>
-                            </attributes>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>output-html</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <backend>html5</backend>
-                            <attributes>
-                                <revnumber>${project.version}</revnumber>
-                                <revremark>${revremark}</revremark>
-                                <revdate>${revisiondate}</revdate>
-                            </attributes>
-                        </configuration>
-                    </execution>
-                </executions>
-                
-            </plugin>
-
-        </plugins>
-    </build>
-    
 </project>

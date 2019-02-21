@@ -32,7 +32,13 @@ ifdef::backend-pdf[]
 :pagenums:
 endif::[]
 
-:javadir: ../../java
+:project_root: ../../../../..
+
+:bookstore_dir: {project_root}/bookstore/
+:bookstore_java_dir: {bookstore_dir}/src/main/java/
+
+:bookstore_client_dir: {project_root}/bookstore-client/
+:bookstore_client_java_dir: {bookstore_client_dir}/src/main/java/
 
 include::chapters/this-book-is-for.adoc[]
 

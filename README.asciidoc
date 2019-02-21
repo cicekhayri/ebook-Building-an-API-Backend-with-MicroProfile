@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2019 Hayri Cicek
+// Copyright (c) 2019 Hayri Cirek
 //
 // See the NOTICE file(s) distributed with this work for additional
 // information regarding copyright ownership.
@@ -18,7 +18,19 @@
 //
 = Building an API Backend with MicroProfile (ebook)
 
+This project has the following parts:
+
+* ebook - the actual PDF / HTML Asciidoc source
+* bookstore - some server side java code referenced in the book
+* bookstore-client - some client side  java code referenced in the book
+
 == Generating the book 
 
-Just enter `mvn clean install` at the command line. 
+==== In the ebook directory:
+
+[source,bash]
+----
+    mvn clean install
+----
+
 Maven will generate the book (PDF and HTML) in `target/generated-docs/`

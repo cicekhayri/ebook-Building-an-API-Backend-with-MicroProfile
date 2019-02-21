@@ -1,0 +1,70 @@
+= MicroProfile Config
+
+MicroProfile Config API can be used to retrieve configuration information from different sources.
+
+Instead of having our book-service url hardcoded in source code, we could have it in our configuration and only have to change it in one place.
+When we generated our Maven project we got an empty `microprofile-config.properties` file created in the `src/main/resources` package.
+MicroProfile Config files are created in this package as default.
+We will now add a new property for the url and make our application read the url from our config file.
+Open `microprofile-config.properties` file and add the following.
+
+[source, properties]
+----
+book-store.base-url=http://localhost:8080/restapi
+----
+
+Now we have only one place to change the service url and to use this property, open the `BookStoreEndpoint.java` and change the code to look like this:
+
+[source, java]
+----
+@ApplicationScoped
+@Path("/books")
+public class BookStoreEndpoint {
+
+    @Inject
+    @ConfigProperty(name = "book-store.base-url")
+    private String bookStoreBaseUrl;
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response books() throws MalformedURLException {
+        URL url = new URL(bookStoreBaseUrl);
+        BookStoreService bookStoreService
+                = RestClientBuilder.newBuilder()
+                        .baseUrl(url)
+                        .build(BookStoreService.class);
+
+        return Response.ok(bookStoreService.getAll()).build();
+    }
+}
+----
+
+`@Inject` `@ConfigProperty` is used for injecting a single configuration property.
+We could also use `@Inject` Config and use `getValue` to retrieve configuration properties like this:
+
+[source, java]
+----
+@ApplicationScoped
+@Path("/books")
+public class BookStoreEndpoint {
+
+    @Inject
+    Config config;
+    
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response books() throws MalformedURLException {
+        URL url = new URL(config.getValue("book-store.base-url", String.class));
+        BookStoreService bookStoreService
+                = RestClientBuilder.newBuilder()
+                        .baseUrl(url)
+                        .build(BookStoreService.class);
+
+        return Response.ok(bookStoreService.getAll()).build();
+    }
+}
+----
+
+== Summary
+In this chapter, we learned how to use MicroProfile Config API.

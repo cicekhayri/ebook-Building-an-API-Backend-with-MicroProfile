@@ -1,4 +1,4 @@
-== MicroProfile Metrics
+= MicroProfile Metrics
 
 When we build micro services or web applications, we need to monitor our application that it’s running, have memory or disk space and for that we have MicroProfile Metrics which is very easy to get started with and use.
 Open the BookStoreEndpoint.java file and make the getAll method to look like this.

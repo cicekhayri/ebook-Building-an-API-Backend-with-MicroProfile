@@ -40,6 +40,8 @@ endif::[]
 :bookstore_client_dir: {project_root}/bookstore-client/
 :bookstore_client_java_dir: {bookstore_client_dir}/src/main/java/
 
+include::chapters/contributors.adoc[]
+
 include::chapters/this-book-is-for.adoc[]
 
 include::chapters/what-you-need-for-this-book.adoc[]

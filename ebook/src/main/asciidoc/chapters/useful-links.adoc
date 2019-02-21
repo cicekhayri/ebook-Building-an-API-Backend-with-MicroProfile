@@ -1,7 +1,7 @@
 = Useful Links
 
 [width="100%"]
-|==========================
+|========================================================
 |MicroProfile Starter   |https://start.microprofile.io/  
 |MicroProfile           |https://microprofile.io
 |TomEE                  |http://tomee.apache.org/
@@ -15,4 +15,4 @@
 |OpenJDK                |https://openjdk.java.net/
 |Maven                  |http://maven.apache.org/
 |NetBeans               |http://netbeans.apache.org/
-|==========================
+|========================================================

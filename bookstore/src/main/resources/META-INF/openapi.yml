@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  title: This is my Book Store application API Title
+  description: This is my Book Store application description
+  license:
+    name: Eclipse Public License - v 1.0
+    url: https://www.eclipse.org/legal/epl-v10.html
+  version: 1.0.0
+servers:
+- url: http://localhost:8080

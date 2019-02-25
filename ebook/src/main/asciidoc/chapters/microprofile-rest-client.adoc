@@ -223,23 +223,27 @@ import javax.ws.rs.core.Response;
 @Path("/books")
 public class BookStoreEndpoint {
 
+    @Inject
+    @RestClient
+    private BookStoreService bookStoreService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response books() throws MalformedURLException {
-        URL url = new URL("http://localhost:8080/restapi");
-        BookStoreService bookStoreService
-                = RestClientBuilder.newBuilder()
-                        .baseUrl(url)
-                        .build(BookStoreService.class);
-
         return Response.ok(bookStoreService.getAll()).build();
     }
 }
 ----
 
 This is almost identical to the one we have in our book-store application, when we invoke this endpoint on the book-store-client service, it will call the book-store service and retrieve all the books.
-Open a new terminal tab and start the `book-store` service first and when the service is up, navigate to the directory where you have the `book-store-client` application and start the application using `mvn clean package tomee:run -Dtomee-plugin.http=8081` and now open your browser and go to 
+Before we start the service, we need to add url to the service we call to the `microprofile-config.properties` file.
+
+[source, properties]
+----
+com.kodnito.bookstore.service.BookStoreService/mp-rest/url=http://localhost:8080/restapi
+----
+
+Now open a new terminal tab and start the `book-store` service first and when the service is up, navigate to the directory where you have the `book-store-client` application and start the application using `mvn clean package tomee:run -Dtomee-plugin.http=8081` and now open your browser and go to 
 http://localhost:8081/restapi/books and we can see that our services talks to each other.
 
 == Summary

@@ -66,4 +66,6 @@ include::chapters/microprofile-open-api.adoc[]
 
 include::chapters/microprofile-fault-tolerance.adoc[]
 
+include::chapters/microprofile-health.adoc[]
+
 include::chapters/useful-links.adoc[]

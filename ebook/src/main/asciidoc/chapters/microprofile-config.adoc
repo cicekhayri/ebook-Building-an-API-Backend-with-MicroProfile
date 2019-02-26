@@ -2,18 +2,19 @@
 
 MicroProfile Config API can be used to retrieve configuration information from different sources.
 
-Instead of having our book-service url hardcoded in source code, we could have it in our configuration and only have to change it in one place.
 When we generated our Maven project we got an empty `microprofile-config.properties` file created in the `src/main/resources` package.
 MicroProfile Config files are created in this package as default.
-We will now add a new property for the url and make our application read the url from our config file.
+We will now add new properties and make our application read the the properties from our config file.
 Open `microprofile-config.properties` file and add the following.
 
 [source, properties]
 ----
-book-store.base-url=http://localhost:8080/restapi
+username=root
+password=secret
+microprofile.apis={"config", "cdi", "jax-rs", "json-p", "fault tolerance", "healt check", "jwt auth", "metrics", "openapi", "opentracing","rest client"}
 ----
 
-Now we have only one place to change the service url and to use this property, open the `BookStoreEndpoint.java` and change the code to look like this:
+Now open the `BookStoreEndpoint.java` and make it look like this:
 
 [source, java]
 ----
@@ -22,25 +23,24 @@ Now we have only one place to change the service url and to use this property, o
 public class BookStoreEndpoint {
 
     @Inject
-    @ConfigProperty(name = "book-store.base-url")
-    private String bookStoreBaseUrl;
+    @ConfigProperty(name="username", defaultValue="admin")
+    private String username;
 
     @GET
+    @Path("mp-config")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response books() throws MalformedURLException {
-        URL url = new URL(bookStoreBaseUrl);
-        BookStoreService bookStoreService
-                = RestClientBuilder.newBuilder()
-                        .baseUrl(url)
-                        .build(BookStoreService.class);
+    public Response mpConfig() {
+        Map<String, Object> configProperties = new HashMap<>();
 
-        return Response.ok(bookStoreService.getAll()).build();
+        configProperties.put("username", username);
+
+        return Response.ok(configProperties).build();
     }
 }
 ----
 
 `@Inject` `@ConfigProperty` is used for injecting a single configuration property.
-We could also use `@Inject` Config and use `getValue` to retrieve configuration properties like this:
+We could also use `@Inject` `Config` and use `getValue` to retrieve configuration properties like this:
 
 [source, java]
 ----
@@ -49,21 +49,38 @@ We could also use `@Inject` Config and use `getValue` to retrieve configuration 
 public class BookStoreEndpoint {
 
     @Inject
+    @ConfigProperty(name="username", defaultValue="admin")
+    private String username;
+
+    @Inject
     Config config;
     
-
     @GET
+    @Path("mp-config")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response books() throws MalformedURLException {
-        URL url = new URL(config.getValue("book-store.base-url", String.class));
-        BookStoreService bookStoreService
-                = RestClientBuilder.newBuilder()
-                        .baseUrl(url)
-                        .build(BookStoreService.class);
+    public Response mpConfig() {
+        Map<String, Object> configProperties = new HashMap<>();
 
-        return Response.ok(bookStoreService.getAll()).build();
+        configProperties.put("username", username);
+        configProperties.put("password", config.getValue("password", String.class));
+        configProperties.put("microprofile-apis", config.getValue("microprofile.apis", String[].class));
+
+        return Response.ok(configProperties).build();
     }
 }
+----
+
+Start the `BookStoreClient` service if not already started and type the following in a new terminal windows:
+
+[source, bash]
+----
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8081/restapi/books/mp-config
+----
+
+`Output`
+[source,bash]
+----
+{"password":"secret","microprofile-apis":["{\"config\"","\"cdi\"","\"jax-rs\"","\"json-p\"","\"fault tolerance\"","\"healt check\"","\"jwt auth\"","\"metrics\"","\"openapi\"","\"opentracing\"","\"rest client\"}"],"username":"root"}%
 ----
 
 == Summary

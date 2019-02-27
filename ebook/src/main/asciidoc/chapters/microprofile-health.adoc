@@ -141,5 +141,56 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 {"checks":[{"data":{"service":"available"},"name":"bookservice","state":"UP"}],"outcome":"UP","status":"UP"}
 ----
 
+Here is an example of how to check database connection health:
+
+[source, java]
+----
+@Log
+@Health
+@ApplicationScoped
+public class MembershipHealthCheck implements HealthCheck {
+    
+    @Inject 
+    private DataSource datasource;
+    
+    @Override
+    public HealthCheckResponse call() {
+        
+        HealthCheckResponseBuilder responseBuilder = HealthCheckResponse.named("membership");
+        try {
+            Connection connection = datasource.getConnection();
+            boolean isValid = connection.isValid(timeout);
+            
+            DatabaseMetaData metaData = connection.getMetaData();
+            
+            responseBuilder = responseBuilder
+                    .withData("databaseProductName", metaData.getDatabaseProductName())
+                    .withData("databaseProductVersion", metaData.getDatabaseProductVersion())
+                    .withData("driverName", metaData.getDriverName())
+                    .withData("driverVersion", metaData.getDriverVersion())
+                    .withData("isValid", isValid);
+            
+            return responseBuilder.state(isValid).build();
+            
+            
+        } catch(SQLException  e) {
+            log.log(Level.SEVERE, null, e);
+            responseBuilder = responseBuilder
+                    .withData("exceptionMessage", e.getMessage());
+            return responseBuilder.down().build();
+        }
+    }
+    
+    @Inject @ConfigProperty(name = "health.membership.dbtimeout", defaultValue = "5")
+    private int timeout;
+    
+    
+}
+----
+
+`Example`
+
+Phillip Krüger, https://github.com/phillip-kruger/microprofile-demo/blob/master/membership/src/main/java/com/github/phillipkruger/membership/health/MembershipHealthCheck.java[*GitHub*]
+
 == Summary
 In this chapter, we learned how to use MicroProfile Health in our application.

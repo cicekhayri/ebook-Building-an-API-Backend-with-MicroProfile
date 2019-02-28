@@ -192,5 +192,32 @@ public class MembershipHealthCheck implements HealthCheck {
 
 Phillip Krüger, https://github.com/phillip-kruger/microprofile-demo/blob/master/membership/src/main/java/com/github/phillipkruger/membership/health/MembershipHealthCheck.java[*GitHub*]
 
+`Example`
+
+Example to check free memory
+
+[source, java]
+----
+@Override
+public HealthCheckResponse call() {
+    return HealthCheckResponse
+            .named("book-store-client")
+            .state(true)
+            .withData("memory", Runtime.getRuntime().freeMemory())
+            .build();
+}
+----
+
+[source, bash]
+----
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8081/restapi/health
+----
+
+`Output`
+[source, bash]
+----
+{"checks":[{"data":{"memory":129470808},"name":"book-store-client","state":"UP"}],"outcome":"UP","status":"UP"}
+----
+
 == Summary
 In this chapter, we learned how to use MicroProfile Health in our application.

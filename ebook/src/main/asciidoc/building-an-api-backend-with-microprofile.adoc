@@ -68,4 +68,6 @@ include::chapters/microprofile-fault-tolerance.adoc[]
 
 include::chapters/microprofile-health.adoc[]
 
+include::chapters/eclipse-microprofile-starter.adoc[]
+
 include::chapters/useful-links.adoc[]

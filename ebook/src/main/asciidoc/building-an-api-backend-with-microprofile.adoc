@@ -18,6 +18,7 @@
 //
 
 = Building an API Backend with MicroProfile
+:front-cover-image: image:../images/mp-design.png[]
 :authors: Hayri Cicek
 :email: hayri@kodnito.com
 :version-label!:
@@ -67,6 +68,8 @@ include::chapters/microprofile-open-api.adoc[]
 include::chapters/microprofile-fault-tolerance.adoc[]
 
 include::chapters/microprofile-health.adoc[]
+
+include::chapters/microprofile-jwt.adoc[]
 
 include::chapters/eclipse-microprofile-starter.adoc[]
 

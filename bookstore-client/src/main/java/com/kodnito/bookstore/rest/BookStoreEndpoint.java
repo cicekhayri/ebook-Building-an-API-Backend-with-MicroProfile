@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import com.kodnito.bookstore.service.BookStoreService;
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 import org.eclipse.microprofile.config.Config;
@@ -39,6 +40,7 @@ public class BookStoreEndpoint {
     @GET
     @Path("mp-config")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("mysimplerole")
     public Response mpConfig() {
         Map<String, Object> configProperties = new HashMap<>();
 

@@ -26,7 +26,7 @@ In the build section add the TomEE Maven runtime:
 </plugins>
 ----
 
-and in the properties section add the version for the TomEE: 
+And in the properties section add the version for the TomEE: 
 
 [source, xml]
 ----
@@ -199,7 +199,7 @@ public interface BookStoreService {
 }
 ----
 
-Here we create an interface with method(s) that represent RESTful APIs endpoint and we can use this interface to invoke, the remote service.
+Here we create an interface with method(s) that represent RESTful APIs endpoint, and we can use this interface to invoke, the remote service.
 Using `@Dependent` and `@RegisterRestClient` on the interface, will make that this interface will be mapped by the CDI.
 Next thing to do is to create a new resource that will use this interface and invoke our book-store service.
 Inside `com.kodnito.bookstore.rest` package create `BookStoreEndpoint.java` file and add the following:
@@ -236,7 +236,7 @@ public class BookStoreEndpoint {
 ----
 
 This is almost identical to the one we have in our book-store application, when we invoke this endpoint on the book-store-client service, it will call the book-store service and retrieve all the books.
-Before we start the service, we need to add url to the service we call to the `microprofile-config.properties` file.
+Before we start the service, we need to add URL to the service we call to the `microprofile-config.properties` file.
 
 [source, properties]
 ----
@@ -244,7 +244,7 @@ com.kodnito.bookstore.service.BookStoreService/mp-rest/url=http://localhost:8080
 ----
 
 Now open a new terminal tab and start the `book-store` service first and when the service is up, navigate to the directory where you have the `book-store-client` application and start the application using `mvn clean package tomee:run -Dtomee-plugin.http=8081` and now open your browser and go to 
-http://localhost:8081/restapi/books and we can see that our services talks to each other.
+http://localhost:8081/restapi/books, and we can see that our services talks to each other.
 
 == Summary
 

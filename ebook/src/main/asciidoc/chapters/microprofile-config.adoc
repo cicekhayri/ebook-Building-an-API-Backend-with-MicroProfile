@@ -4,7 +4,7 @@ MicroProfile Config API can be used to retrieve configuration information from d
 
 When we generated our Maven project we got an empty `microprofile-config.properties` file created in the `src/main/resources` package.
 MicroProfile Config files are created in this package as default.
-We will now add new properties and make our application read the the properties from our config file.
+We will now add new properties and make our application read the properties from our config file.
 Open `microprofile-config.properties` file and add the following.
 
 [source, properties]

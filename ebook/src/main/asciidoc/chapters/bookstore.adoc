@@ -115,7 +115,7 @@ Your pom.xml should look like this:
 </project>
 ----
 
-We added dependencies for H2 database, JPA , Payara Micro Maven runtime and javax transaction api. 
+We added dependencies for H2 database, JPA , Payara Micro Maven runtime and javax transaction API. 
 Now open the terminal and navigate to the project directory and type the following command to download the dependencies :
 
 [source,bash]
@@ -149,7 +149,7 @@ Create a new directory called `WEB-INF` inside `src/main/webapp` and inside `WEB
 
 We use the open source H2 database, which can be embedded in Java applications or run in the client mode. 
 It’s really easy to getting started with H2 database, but I don’t think it’s a good idea to use it in production. 
-This config will create a in memory based database called `restapiDB`. 
+This config will create an in memory based database called `restapiDB`. 
 Now that we have our PayaraMicro DataSource configured it’s time to create our `persistence.xml` file. 
 Inside `src/main/resources` create the `persistence.xml` file and add the following:
 
@@ -178,7 +178,7 @@ The `persistence.xml` file defines what provider to be used, the name of the per
 Now that we have everything configured, it’s time to start working on our API.
 
 == Entity
-A Entity is a Java class that is marked with annotations that represent objects in a database. 
+An Entity is a Java class that is marked with annotations that represent objects in a database. 
 Create a new file called Book.java inside com.kodnito.bookstore.entity and make it look like this:
 
 [source,java]
@@ -193,7 +193,7 @@ include::{bookstore_java_dir}/com/kodnito/bookstore/entity/Book.java[]
 * `@Id` annotation is used to define the primary key and the Id property is also annotated with `@GeneratedValue` to indicate that the Id should be generated automatically.
 
 == Business Logic
-It’s time to concentrate on the business logic code. It’s always best to separate the code that each class does it’s own job. We will now create the BookService.java file for interacting with the database.                                                                                                                         Now create the BookService.java file inside com.kodnito.bookstore.service package and make it look like:
+It’s time to concentrate on the business logic code. It’s always best to separate the code that each class does its own job. We will now create the BookService.java file for interacting with the database.                                                                                                                         Now create the BookService.java file inside com.kodnito.bookstore.service package and make it look like:
 
 [source,java]
 ----

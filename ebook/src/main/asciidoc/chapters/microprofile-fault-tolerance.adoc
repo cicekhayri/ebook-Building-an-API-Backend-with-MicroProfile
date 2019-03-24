@@ -12,7 +12,7 @@ public Response getAll() {
 }
 ----
 
-`@Fallbac` annotation is used when something went wrong with the call then it will still operate without throwing an exception.
+`@Fallback` annotation is used when something went wrong with the call then it will still operate without throwing an exception.
 
 [source, java]
 ----

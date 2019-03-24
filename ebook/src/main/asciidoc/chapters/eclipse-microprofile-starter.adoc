@@ -14,7 +14,7 @@ In Examples for specifications section, choose what examples you want to be gene
 
 That's it, now click Download button and your new project will be downloaded. + 
 Unzip the zip file and open your terminal and go to the directory where the project is. + 
-Depends on which server you choosed, use one of the following commands to start the appliction. 
+Depends on which server you choose, use one of the following commands to start the application. 
 
 `Open Liberty`
 [source, bash]

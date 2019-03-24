@@ -18,7 +18,7 @@
 //
 
 = Building an API Backend with MicroProfile
-:front-cover-image: image:../images/mp-design.png[]
+:front-cover-image: image:../images/front-cover-image.png[]
 :authors: Hayri Cicek
 :email: hayri@kodnito.com
 :version-label!:

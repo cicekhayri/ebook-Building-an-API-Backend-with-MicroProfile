@@ -20,7 +20,7 @@ servers:
 ----
 
 This is our configuration for our API documentation, here we add title, description and license if we want.
-Restart the `book-store` application and go to http://localhost:8080/openapi and you will se your RESTful API documentation generated, it doesn’t say much about the endpoint and we can add more to the generated documentation.
+Restart the `book-store` application and go to http://localhost:8080/openapi, and you will see your RESTful API documentation generated, it doesn’t say much about the endpoint and we can add more to the generated documentation.
 Open `BookStoreEndpoint.java` and make the `getAll()` method to look like this:
 
 [source, java]
@@ -49,7 +49,7 @@ public Response getAll() {
 }
 ----
 
-restart the `book-store` service and refresh the http://localhost:8080/openapi endpoint and se the new generated OpenAPI documentation.
+Restart the `book-store` service and refresh the http://localhost:8080/openapi endpoint and see the new generated OpenAPI documentation.
 
 image:../images/bookstore-openapi.png[Bookstore OpenAPI, 500,500]
 

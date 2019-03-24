@@ -7,9 +7,9 @@ The primary used HTTP verbs are GET, POST, PUT, PATCH and DELETE.
 |========================================================
 |GET        |Get a list of resources or a single resources
 |POST       |Create a new resource
-|PUT        |Update/Replace a existing resource
-|PATCH      |Update/Modify a existing resource
-|DELETE     |Delete a existing resource
+|PUT        |Update/Replace an existing resource
+|PATCH      |Update/Modify an existing resource
+|DELETE     |Delete an existing resource
 |========================================================
 
 Now how should we define URIs for our book store application:
@@ -127,7 +127,7 @@ Content-Length: 0
 X-Frame-Options: SAMEORIGIN
 ----
 
-Now that we have created one book object, we can go back and try the GET method again to se that we get the book object from the database.
+Now that we have created one book object, we can go back and try the GET method again to see that we get the book object from the database.
 
 [source, bash]
 ----
@@ -270,4 +270,4 @@ X-Frame-Options: SAMEORIGIN
 ----
 
 == Summary
-In this chapter we learned how to create a REST api using MicroProfile and curl to test our API.
+In this chapter we learned how to create a REST API using MicroProfile and curl to test our API.

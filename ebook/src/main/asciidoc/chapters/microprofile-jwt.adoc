@@ -3,7 +3,7 @@
 In this chapter, we will learn how to secure our services using MicroProfile JWT and Keycloak.
 Go to https://www.keycloak.org/downloads.html and download latest Standalone server distribution.
 Unzip the zip file and open a new terminal window and navigate to the keycloak folder.
-Now type type following command to start the Keycloak server:
+Now type following command to start the Keycloak server:
 
 [source, bash]
 ----
@@ -11,7 +11,7 @@ Now type type following command to start the Keycloak server:
 ----
 
 First thing we will do is to create a new user, 
-open you browser and navigate to http://localhost:8080/auth/ and create a new user with admin access.
+open your browser and navigate to http://localhost:8080/auth/ and create a new user with admin access.
 
 image:../images/keycloak_create_admin_user.png[Keycloak Create Admin User, 500,500]
 
@@ -38,7 +38,7 @@ the user we will use.
 
 Before we implement security in our services, we need to configure Keycloak.
 
-* Klick on `Groups` and create a new group called `mysimpleservice`
+* Click on `Groups` and create a new group called `mysimpleservice`
 
 image:../images/keycloak-create-my-simple-group.png[Keycloak Client, 500,500]
 
@@ -105,7 +105,7 @@ public Response mpConfig() {
 
 Download https://twitter.com/cicekhayri[Postman], if you don't already have it installed.
 We will now invoke the Keycloak auth token endpoint to retrieve the access token to use in our service.
-Open Postman and add the following to retrieve access token
+Open Postman and add the following to retrieve access token.
 
 image:../images/postman-keycloak-token-endpoint.png[Keycloak Client, 500,500]
 

@@ -11,11 +11,11 @@ Now type following command to start the Keycloak server:
 ----
 
 First thing we will do is to create a new user, 
-open your browser and navigate to http://localhost:8080/auth/ and create a new user with admin access.
+open your browser and navigate to http://localhost:8084/auth/ and create a new user with admin access.
 
 image:../images/keycloak_create_admin_user.png[Keycloak Create Admin User, 500,500]
 
-Now go to http://localhost:8080/auth/admin/ and login with the newly created user.
+Now go to http://localhost:8084/auth/admin/ and login with the newly created user.
 
 image:../images/keycloak_login_page.png[Keycloak Login, 500,500]
 

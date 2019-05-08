@@ -1,0 +1,24 @@
+= MicroProfile OpenTracing
+
+OpenTracing is a standardized API that allows developers to instrument their own services for distributed tracing.
+With distributed tracing, you can troubleshoot your services by logging the requests.
+
+
+`@Traced` annotation specify a class or method to be traced and has two arguments, which are optional.
+
+[width="100%"]
+|========================================================
+|value              |Defaults to true
+|operationName      |Name of the span, default is ""
+|========================================================
+
+
+[source, java]
+----
+@GET
+@Produces(MediaType.APPLICATION_JSON)
+@Traced(operationName = "booksOperation")
+public Response books() throws MalformedURLException {
+    return Response.ok(bookStoreService.getAll()).build();
+}
+----

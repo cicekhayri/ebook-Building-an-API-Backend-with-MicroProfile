@@ -71,6 +71,8 @@ include::chapters/microprofile-health.adoc[]
 
 include::chapters/microprofile-jwt.adoc[]
 
+include::chapters/microprofile-opentracing.adoc[]
+
 include::chapters/eclipse-microprofile-starter.adoc[]
 
 include::chapters/useful-links.adoc[]

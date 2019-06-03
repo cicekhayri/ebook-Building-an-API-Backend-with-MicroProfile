@@ -7,3 +7,5 @@
 /bookstore-client/.classpath
 .project
 .settings/
+.idea/
+*.iml

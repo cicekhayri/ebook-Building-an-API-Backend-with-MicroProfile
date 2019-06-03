@@ -22,3 +22,16 @@ public Response books() throws MalformedURLException {
     return Response.ok(bookStoreService.getAll()).build();
 }
 ----
+
+We can use tracing tools like Zipkin or Jaeger to monitor and troubleshoot latency problems in distributed systems.
+
+[width="100%"]
+|========================================================
+|Zipkin             |https://zipkin.apache.org/
+|Jaeger             |https://www.jaegertracing.io/
+|========================================================
+
+
+== Summary
+
+In this chapter, we learned how to troubleshoot services using MicroProfile OpenTracing.

@@ -1,8 +1,0 @@
-= Contributors
-
-[width="100%"]
-|========================================================
-|Hayri Cicek    |https://twitter.com/cicekhayri[@cicekhayri]    |https://github.com/cicekhayri[*GitHub*]     |https://www.kodnito.com[*Homepage*]
-|Phillip Krüger |https://twitter.com/phillipkruger[@phillipkruger]  |https://github.com/phillip-kruger[*GitHub*]    |https://www.phillip-kruger.com[*Homepage*]
-|Cesar Hernandez |https://twitter.com/CesarHgt[@CesarHgt]  |https://github.com/cesarhernandezgt[*GitHub*]    |http://cesarhernandezgt.blogspot.com/[*Homepage*]
-|========================================================

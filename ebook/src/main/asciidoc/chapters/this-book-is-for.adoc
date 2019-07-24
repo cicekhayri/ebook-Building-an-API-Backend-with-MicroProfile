@@ -1,3 +1,0 @@
-= This book is for
-
-This book is for Java developers that want to quickly learn how to create a REST API using MicroProfile.

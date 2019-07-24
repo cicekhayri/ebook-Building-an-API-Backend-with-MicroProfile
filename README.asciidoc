@@ -20,8 +20,7 @@
 
 [width="100%"]
 |========================================================
-|https://cicekhayri.github.io/ebook-Building-an-API-Backend-with-MicroProfile/building-an-api-backend-with-microprofile.html[HTML]
-|https://cicekhayri.github.io/ebook-Building-an-API-Backend-with-MicroProfile/building-an-api-backend-with-microprofile.pdf[PDF]
+|https://cicekhayri.github.io/ebook-Building-an-API-Backend-with-MicroProfile/building-an-api-backend-with-microprofile.html[HTML]  |https://cicekhayri.github.io/ebook-Building-an-API-Backend-with-MicroProfile/building-an-api-backend-with-microprofile.pdf[PDF]
 |========================================================
 
 This project has the following parts:

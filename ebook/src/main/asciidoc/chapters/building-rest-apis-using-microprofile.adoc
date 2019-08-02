@@ -1,4 +1,4 @@
-= Building REST APIs Using MicroProfile
+== Building REST APIs Using MicroProfile
 
 REST stands for representational state transfer and is a software architecture style for creating web services. 
 The primary used HTTP verbs are GET, POST, PUT, PATCH and DELETE. 
@@ -269,5 +269,5 @@ X-Frame-Options: SAMEORIGIN
 [{"description":"this is my book description","id":1,"isbn":"12xxxxxxxx","language":"English","pages":0,"price":0.0,"publisher":"None Yet","title":"This is my test book"}]%
 ----
 
-== Summary
+=== Summary
 In this chapter we learned how to create a REST API using MicroProfile and curl to test our API.

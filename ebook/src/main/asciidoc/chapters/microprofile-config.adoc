@@ -1,4 +1,4 @@
-= MicroProfile Config
+== MicroProfile Config
 
 MicroProfile Config API can be used to retrieve configuration information from different sources.
 
@@ -83,5 +83,5 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 {"password":"secret","microprofile-apis":["{\"config\"","\"cdi\"","\"jax-rs\"","\"json-p\"","\"fault tolerance\"","\"healt check\"","\"jwt auth\"","\"metrics\"","\"openapi\"","\"opentracing\"","\"rest client\"}"],"username":"root"}%
 ----
 
-== Summary
+=== Summary
 In this chapter, we learned how to use MicroProfile Config API.

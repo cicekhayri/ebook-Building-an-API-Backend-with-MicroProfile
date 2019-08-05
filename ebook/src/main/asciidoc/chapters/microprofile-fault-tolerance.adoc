@@ -62,6 +62,6 @@ public Response getAll() {
 ----
 
 
-== Summary 
+=== Summary
 
 In this chapter, we learned how to use MicroProfile Fault Tolerance.

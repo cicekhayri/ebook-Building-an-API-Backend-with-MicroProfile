@@ -1,4 +1,4 @@
-= MicroProfile Health
+== MicroProfile Health
 
 Health checks are used to determine if service is running, shutdown, lack of disk space or maybe issues with the database connection.
 Because we added all the MicroProfile dependencies in our services, we have an endpoint called `/health` by default and if we visit that
@@ -219,5 +219,5 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 {"checks":[{"data":{"memory":129470808},"name":"book-store-client","state":"UP"}],"outcome":"UP","status":"UP"}
 ----
 
-== Summary
+=== Summary
 In this chapter, we learned how to use MicroProfile Health in our application.

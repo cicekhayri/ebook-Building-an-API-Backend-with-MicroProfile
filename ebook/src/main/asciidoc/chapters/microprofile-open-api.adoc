@@ -1,4 +1,4 @@
-= MicroProfile Open API
+== MicroProfile Open API
 
 In this chapter, we will learn how to document our RESTful APIs.
 MicroProfile OpenAPI defines interfaces to produces OpenAPI documentation from JAX-RS applications.
@@ -61,6 +61,6 @@ image:../images/bookstore-openapi.png[Bookstore OpenAPI, 500,500]
 https://www.phillip-kruger.com[*Phillip Krüger*] have an excellent blog post on how to add Swagger UI to your OpenAPI documentation. 
 https://www.phillip-kruger.com/post/microprofile_openapi_swaggerui/
 
-== Summary
+=== Summary
 
 In this chapter, we learned how to document our RESTful APIs using MicroProfile OpenAPI.

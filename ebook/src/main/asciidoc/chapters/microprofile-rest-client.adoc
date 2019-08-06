@@ -1,4 +1,4 @@
-= MicroProfile Rest Client
+== MicroProfile Rest Client
 
 With MicroProfile Rest Client we can invoke RESTful services over HTTP, and in this tutorial we will create another service, which will call our Book Store application. Open a new terminal window and create a new MicroProfile Maven project using Kodnito MicroProfile Archetype, using the following command:
 
@@ -246,6 +246,6 @@ com.kodnito.bookstore.service.BookStoreService/mp-rest/url=http://localhost:8080
 Now open a new terminal tab and start the `book-store` service first and when the service is up, navigate to the directory where you have the `book-store-client` application and start the application using `mvn clean package tomee:run -Dtomee-plugin.http=8081` and now open your browser and go to 
 http://localhost:8081/restapi/books, and we can see that our services talks to each other.
 
-== Summary
+=== Summary
 
 In this chapter, we learned how to add MicroProfile Metrics to our application.

@@ -1,4 +1,4 @@
-= MicroProfile Metrics
+== MicroProfile Metrics
 
 When we build micro services or web applications, we need to monitor our application that it’s running, have memory or disk space and for that we have MicroProfile Metrics which is very easy to get started with and use.
 Open the BookStoreEndpoint.java file and make the getAll method to look like this.
@@ -23,7 +23,7 @@ image:../images/all-metrics.png[All Metrics, 500,500]
 
 Here we have a list of metrics and if we want a single metric then we could use the name we specified in the name field and navigate to http://localhost:8080/metrics/application/get-all-books.
 
-== `@Metered`
+=== `@Metered`
 `@Metered` annotation will monitor the rate events occurred. The meta fields are optional, but it makes the life easy if we add some data to the meta fields. Change the create method to look like this.
 
 [source, java]
@@ -41,7 +41,7 @@ public Response create(Book book) {
 
 Like the `@Timed` annotation, we have name, unit, description and absolute, which is almost identical.
 
-== `@Counted`
+=== `@Counted`
 `@Counted` annotation will monitor how many times a method got invoked, and the `@Counted` annotation have a few meta fields and are optional. Update the getBook method to look like this.
 
 [source, java]
@@ -73,7 +73,7 @@ Here, like the other metrics, we have name, absolute, monotonic, displayName and
 |========================================================
 
 
-== `@Gauge`
+=== `@Gauge`
 `@Gauge` annotation is used to return just a value
 The metadata fields on @Counted annotation are optional
 
@@ -98,5 +98,5 @@ public int getIntValue() {
 
 Start the application server and go to http://localhost:8080/metrics/application, you should see all your metrics. 
 
-== Summary
+=== Summary
 In this chapter, we learned how to add MicroProfile Metrics to our application.

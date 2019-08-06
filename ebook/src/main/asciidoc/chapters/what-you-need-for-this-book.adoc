@@ -1,4 +1,4 @@
-= What you need for this book
+== What you need for this book
 
 To try the code samples in this book you will need this.
 

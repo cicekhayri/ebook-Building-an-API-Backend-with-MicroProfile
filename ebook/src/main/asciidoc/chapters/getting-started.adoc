@@ -1,6 +1,6 @@
-= Getting Started
+== Getting Started
 
-== Preparation
+=== Preparation
 
 Before you can start, you need to install JDK and Maven.
 

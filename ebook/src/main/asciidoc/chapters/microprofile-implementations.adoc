@@ -1,4 +1,4 @@
-= MicroProfile Implementations
+== MicroProfile Implementations
 
 [width="100%"]
 |========================================================

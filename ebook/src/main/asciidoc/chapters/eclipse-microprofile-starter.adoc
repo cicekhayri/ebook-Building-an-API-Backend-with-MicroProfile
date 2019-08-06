@@ -1,4 +1,4 @@
-= Eclipse MicroProfile Starter
+== Eclipse MicroProfile Starter
 
 We used the Kodnito MicroProfile Archetype to generate our projects, but there is a new way and it's to use the new Eclipse MicroProfile Starter.
 Go to https://start.microprofile.io and follow the steps below to generate your new application.
@@ -48,5 +48,5 @@ Depends on which server you choose, use one of the following commands to start t
 
 You will find the test page at http://localhost:8080/index.html
 
-== Summary
+=== Summary
 In this chapter we learned how to use Eclipse MicroProfile Starter.

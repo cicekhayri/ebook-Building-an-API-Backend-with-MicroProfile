@@ -1,4 +1,4 @@
-= What Is MicroProfile?
+== What Is MicroProfile?
 
 MicroProfile is an Open Source project hosted by Eclipse Foundation and is dedicated to optimize the Enterprise Java for microservice based architectures. The first release was in 2016.
 

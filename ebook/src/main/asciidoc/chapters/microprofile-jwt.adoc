@@ -1,4 +1,4 @@
-= MicroProfile JWT
+== MicroProfile JWT
 
 In this chapter, we will learn how to secure our services using MicroProfile JWT and Keycloak.
 Go to https://www.keycloak.org/downloads.html and download latest Standalone server distribution.
@@ -130,6 +130,6 @@ image:../images/postman-auth-200-OK.png[Keycloak Client, 500,500]
 
 And that's it, we have secured our `/mp-config` endpoint.
 
-== Summary
+=== Summary
 
 In this chapter, we learned how to add MicroProfile JWT security to our service.

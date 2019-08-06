@@ -432,15 +432,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>MicroProfile Rest Client</h1>
-<div class="details">
-<span id="revnumber">version 1.0.0-SNAPSHOT,</span>
-<span id="revdate">August 03, 2019</span>
-<br><span id="revremark">Draft</span>
-</div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_microprofile_rest_client">MicroProfile Rest Client</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>With MicroProfile Rest Client we can invoke RESTful services over HTTP, and in this tutorial we will create another service, which will call our Book Store application. Open a new terminal window and create a new MicroProfile Maven project using Kodnito MicroProfile Archetype, using the following command:</p>
@@ -695,13 +690,11 @@ Before we start the service, we need to add URL to the service we call to the <c
 <p>Now open a new terminal tab and start the <code>book-store</code> service first and when the service is up, navigate to the directory where you have the <code>book-store-client</code> application and start the application using <code>mvn clean package tomee:run -Dtomee-plugin.http=8081</code> and now open your browser and go to
 <a href="http://localhost:8081/restapi/books" class="bare">http://localhost:8081/restapi/books</a>, and we can see that our services talks to each other.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_summary">Summary</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_summary">Summary</h3>
 <div class="paragraph">
 <p>In this chapter, we learned how to add MicroProfile Metrics to our application.</p>
+</div>
 </div>
 </div>
 </div>
@@ -709,7 +702,7 @@ Before we start the service, we need to add URL to the service we call to the <c
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2019-08-03 08:21:31 UTC
+Last updated 2019-08-06 19:28:39 UTC
 </div>
 </div>
 </body>

@@ -432,15 +432,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>MicroProfile Metrics</h1>
-<div class="details">
-<span id="revnumber">version 1.0.0-SNAPSHOT,</span>
-<span id="revdate">August 03, 2019</span>
-<br><span id="revremark">Draft</span>
-</div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_microprofile_metrics">MicroProfile Metrics</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>When we build micro services or web applications, we need to monitor our application that it’s running, have memory or disk space and for that we have MicroProfile Metrics which is very easy to get started with and use.
@@ -469,11 +464,8 @@ Now Kill the Payara Micro server and start it again using the command <code>mvn 
 <div class="paragraph">
 <p>Here we have a list of metrics and if we want a single metric then we could use the name we specified in the name field and navigate to <a href="http://localhost:8080/metrics/application/get-all-books" class="bare">http://localhost:8080/metrics/application/get-all-books</a>.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_metered"><code>@Metered</code></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_metered"><code>@Metered</code></h3>
 <div class="paragraph">
 <p><code>@Metered</code> annotation will monitor the rate events occurred. The meta fields are optional, but it makes the life easy if we add some data to the meta fields. Change the create method to look like this.</p>
 </div>
@@ -494,10 +486,8 @@ public Response create(Book book) {
 <p>Like the <code>@Timed</code> annotation, we have name, unit, description and absolute, which is almost identical.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_counted"><code>@Counted</code></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_counted"><code>@Counted</code></h3>
 <div class="paragraph">
 <p><code>@Counted</code> annotation will monitor how many times a method got invoked, and the <code>@Counted</code> annotation have a few meta fields and are optional. Update the getBook method to look like this.</p>
 </div>
@@ -550,10 +540,8 @@ public Response getBook(@PathParam("id") Long id) {
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_gauge"><code>@Gauge</code></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_gauge"><code>@Gauge</code></h3>
 <div class="paragraph">
 <p><code>@Gauge</code> annotation is used to return just a value
 The metadata fields on @Counted annotation are optional</p>
@@ -595,12 +583,11 @@ public int getIntValue() {
 <p>Start the application server and go to <a href="http://localhost:8080/metrics/application" class="bare">http://localhost:8080/metrics/application</a>, you should see all your metrics.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_summary">Summary</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_summary">Summary</h3>
 <div class="paragraph">
 <p>In this chapter, we learned how to add MicroProfile Metrics to our application.</p>
+</div>
 </div>
 </div>
 </div>
@@ -608,7 +595,7 @@ public int getIntValue() {
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2019-08-03 08:21:31 UTC
+Last updated 2019-08-06 19:28:39 UTC
 </div>
 </div>
 </body>

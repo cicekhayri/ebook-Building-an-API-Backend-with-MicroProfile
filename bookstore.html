@@ -432,17 +432,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>BookStore</h1>
-<div class="details">
-<span id="revnumber">version 1.0.0-SNAPSHOT,</span>
-<span id="revdate">August 03, 2019</span>
-<br><span id="revremark">Draft</span>
-</div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_generating_the_project">Generating the project</h2>
+<h2 id="_bookstore">BookStore</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_generating_the_project">Generating the project</h3>
 <div class="paragraph">
 <p>We will use the Kodnito MicroProfile Archetype to generate our project.
 Open your  terminal and type in the following command to generate our project.</p>
@@ -569,10 +565,8 @@ Now open the terminal and navigate to the project directory and type the followi
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_payara_micro_config">Payara Micro Config</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_payara_micro_config">Payara Micro Config</h3>
 <div class="paragraph">
 <p>Create a new directory called <code>WEB-INF</code> inside <code>src/main/webapp</code> and inside <code>WEB-INF</code> directory create the <code>glassfish-resources.xml</code> file and add the following to configure DataSource:</p>
 </div>
@@ -630,10 +624,8 @@ The <code>persistence.xml</code> file defines what provider to be used, the name
 <p>Now that we have everything configured, it’s time to start working on our API.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_entity">Entity</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_entity">Entity</h3>
 <div class="paragraph">
 <p>An Entity is a Java class that is marked with annotations that represent objects in a database.
 Create a new file called Book.java inside com.kodnito.bookstore.entity and make it look like this:</p>
@@ -663,10 +655,8 @@ Create a new file called Book.java inside com.kodnito.bookstore.entity and make 
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_business_logic">Business Logic</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_business_logic">Business Logic</h3>
 <div class="paragraph">
 <p>It’s time to concentrate on the business logic code. It’s always best to separate the code that each class does its own job. We will now create the BookService.java file for interacting with the database.                                                                                                                         Now create the BookService.java file inside com.kodnito.bookstore.service package and make it look like:</p>
 </div>
@@ -684,12 +674,11 @@ Update method like it says will update an existing object, create method will cr
 The <code>@Transactional</code> annotation provides the application the ability to control the transaction boundaries.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_summary">Summary</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_summary">Summary</h3>
 <div class="paragraph">
 <p>In this chapter, we created our application from maven archetype, added the dependencies we need for our application, configured our application, created entities classes and created our business logic code for interacting with the database.</p>
+</div>
 </div>
 </div>
 </div>
@@ -697,7 +686,7 @@ The <code>@Transactional</code> annotation provides the application the ability 
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2019-08-03 08:21:31 UTC
+Last updated 2019-08-06 19:28:39 UTC
 </div>
 </div>
 </body>

@@ -39,7 +39,7 @@ public Response getAll() {
 }
 ----
 
-With `@Bulkhead` annotation you can limit the number of concurrent request that are made to the method
+With `@Bulkhead` annotation you can limit the number of concurrent requests that are made to the method
 
 [source, java]
 ----

@@ -15,8 +15,8 @@ public Response getAll() {
 }
 ----
 
-`@Timed` annotation will monitor how long the process take. 
-The metadata fields on `@Timed` annotation are optional, but we have added a few name field is the name of the metric, description is used to describe the metric, unit sets the unit of the metric and absolute is used to determine if the name specified in the name field is the exact name. 
+`@Timed` annotation will monitor how long the process takes. 
+The metadata fields on `@Timed` annotation are optional, but we have added a few, name field is the name of the metric, the description is used to describe the metric, unit sets the unit of the metric and absolute is used to determine if the name specified in the name field is the exact name. 
 Now Kill the Payara Micro server and start it again using the command `mvn clean package payara-micro:start` and first navigate to the http://localhost:8080/restapi/books, because we need to time it and see how long the process will take, now open another tab and go to http://localhost:8080/metrics/application and voila you have some metrics.
 
 image:../images/all-metrics.png[All Metrics, 500,500]
@@ -24,7 +24,7 @@ image:../images/all-metrics.png[All Metrics, 500,500]
 Here we have a list of metrics and if we want a single metric then we could use the name we specified in the name field and navigate to http://localhost:8080/metrics/application/get-all-books.
 
 === `@Metered`
-`@Metered` annotation will monitor the rate events occurred. The meta fields are optional, but it makes the life easy if we add some data to the meta fields. Change the create method to look like this.
+`@Metered` annotation will monitor the rate events occurred. The meta fields are optional, but it makes life easy if we add some data to the meta fields. Change the create method to look like this.
 
 [source, java]
 ----
@@ -42,7 +42,7 @@ public Response create(Book book) {
 Like the `@Timed` annotation, we have name, unit, description and absolute, which is almost identical.
 
 === `@Counted`
-`@Counted` annotation will monitor how many times a method got invoked, and the `@Counted` annotation have a few meta fields and are optional. Update the getBook method to look like this.
+`@Counted` annotation will monitor how many times a method gets invoked, and the `@Counted` annotation have a few meta fields and are optional. Update the getBook method to look like this.
 
 [source, java]
 ----
@@ -61,7 +61,7 @@ public Response getBook(@PathParam("id") Long id) {
 }
 ----
 
-Here, like the other metrics, we have name, absolute, monotonic, displayName and description, the table below show what everything is for:
+Here, like the other metrics, we have name, absolute, monotonic, displayName and description, the table below shows what everything is for:
 
 [width="100%"]
 |========================================================

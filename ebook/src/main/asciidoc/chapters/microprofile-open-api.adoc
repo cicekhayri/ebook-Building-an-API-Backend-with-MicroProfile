@@ -1,7 +1,7 @@
 == MicroProfile Open API
 
 In this chapter, we will learn how to document our RESTful APIs.
-MicroProfile OpenAPI defines interfaces to produces OpenAPI documentation from JAX-RS applications.
+MicroProfile OpenAPI defines interfaces to produce OpenAPI documentation from JAX-RS applications.
 We will add documentation to our `book-store` service application.
 Inside `src/main/resources/META-INF` create the `openapi.yaml` file and add the following :
 

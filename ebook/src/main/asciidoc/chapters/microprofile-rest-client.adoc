@@ -76,7 +76,7 @@ Your pom.xml should look like this:
 </project>
 ----
 
-Now in the terminal type `mvn clean install` to download dependencies. It’s time to code our book-store-client service which will call our book-store.
+Now in the terminal type `mvn clean install` to download dependencies. It’s time to code our book-store-client service which we'll call our book-store.
 Inside `com.kodnito.bookstore.response` package create a new file called `BookResponse.java` and add the following.
 
 [source, java]

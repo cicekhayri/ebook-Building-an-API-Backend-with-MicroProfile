@@ -2,7 +2,11 @@
 
 [width="100%"]
 |========================================================
-|Hayri Cicek    |https://twitter.com/cicekhayri[@cicekhayri]    |https://github.com/cicekhayri[*GitHub*]     |https://www.kodnito.com[*Homepage*]
-|Phillip Krüger |https://twitter.com/phillipkruger[@phillipkruger]  |https://github.com/phillip-kruger[*GitHub*]    |https://www.phillip-kruger.com[*Homepage*]
-|Cesar Hernandez |https://twitter.com/CesarHgt[@CesarHgt]  |https://github.com/cesarhernandezgt[*GitHub*]    |http://cesarhernandezgt.blogspot.com/[*Homepage*]
+|Hayri Cicek    |https://twitter.com/cicekhayri[@cicekhayri]    |https://github.com/cicekhayri[*GitHub*]     |https://www.kodnito.com[*Website*]
+|Phillip Krüger |https://twitter.com/phillipkruger[@phillipkruger]  |https://github.com/phillip-kruger[*GitHub*]    |https://www.phillip-kruger.com[*Website*]
+|Cesar Hernandez |https://twitter.com/CesarHgt[@CesarHgt]  |https://github.com/cesarhernandezgt[*GitHub*]    |http://cesarhernandezgt.blogspot.com/[*Website*]
+|Amelia Eiras  |https://twitter.com/ameliaeiras[@ameliaeiras]  |https://github.com/aeiras[*GitHub*]    |https://www.tomitribe.com/[*Website*]
+|Peggy Blevins |  |https://github.com/mblevins65[*GitHub*]    |
+|Ondro Mihályi |https://twitter.com/OndroMih[@OndroMih]  |https://github.com/OndroMih[*GitHub*]    |https://ondro.inginea.eu/[*Website*]
+|Rudy De Busscher |https://twitter.com/rdebusscher[@rdebusscher]  |https://github.com/rdebusscher[*GitHub*]    |https://www.atbash.be/[*Website*]
 |========================================================

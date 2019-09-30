@@ -248,4 +248,4 @@ http://localhost:8081/restapi/books, and we can see that our services talks to e
 
 === Summary
 
-In this chapter, we learned how to add MicroProfile Metrics to our application.
+In this chapter, we learned how use MicroProfile Rest Client in our application.

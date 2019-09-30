@@ -592,7 +592,7 @@ Now open the terminal and navigate to the project directory and type the followi
 </div>
 <div class="paragraph">
 <p>We use the open source H2 database, which can be embedded in Java applications or run in the client mode.
-It’s really easy to getting started with H2 database, but I don’t think it’s a good idea to use it in production.
+It’s really easy to get started with H2 database, but I don’t think it’s a good idea to use it in production.
 This config will create an in memory based database called <code>restapiDB</code>.
 Now that we have our PayaraMicro DataSource configured it’s time to create our <code>persistence.xml</code> file.
 Inside <code>src/main/resources</code> create the <code>persistence.xml</code> file and add the following:</p>
@@ -667,8 +667,8 @@ Create a new file called Book.java inside com.kodnito.bookstore.entity and make 
 </div>
 <div class="paragraph">
 <p>What does everything mean in this file, we start at the beginning of the file with the <code>@ApplicationScoped</code> annotation.
-When an object is annotated with the <code>@ApplicationScoped</code> annotation, is created once for the duration of the application.
-<code>@PersistenceContext</code> annotated injects the EntityManager to be used at runtime. We have created five method to interact with the database.
+When an object is annotated with the <code>@ApplicationScoped</code> annotation, it is created once for the duration of the application.
+<code>@PersistenceContext</code> annotation injects the EntityManager to be used at runtime. We have created five methods to interact with the database.
 getAll method will get all the objects from the books table, when we want a single object we will use the findById method with an id.
 Update method like it says will update an existing object, create method will create a new Book object and delete will delete an existing Book object from the database.
 The <code>@Transactional</code> annotation provides the application the ability to control the transaction boundaries.</p>
@@ -686,7 +686,7 @@ The <code>@Transactional</code> annotation provides the application the ability 
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2019-08-06 19:28:39 UTC
+Last updated 2019-09-30 20:35:34 UTC
 </div>
 </div>
 </body>

@@ -675,7 +675,7 @@ X-Frame-Options: SAMEORIGIN
 </div>
 </div>
 <div class="paragraph">
-<p>The GET and the POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
+<p>The GET and POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
 Open BookStoreEndpoint and add the following for updating an existing object.</p>
 </div>
 <div class="listingblock">
@@ -717,7 +717,7 @@ public Response delete(@PathParam("id") Long id) {
 <div class="paragraph">
 <p>Here we annotate the delete method with <code>@DELETE</code> annotation, which maps HTTP DELETE verb request to this method.
 We pass an id to this method, which finds and deletes the Book objects whose id match.
-Now in the terminal, if you don’t already have quite the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.</p>
+Now in the terminal, if you haven&#8217;t quit the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.</p>
 </div>
 <div class="paragraph">
 <p>Open another terminal window and try both the Update and Delete functions.</p>
@@ -759,7 +759,7 @@ Next is to try the DELETE method, open a new terminal tab and use the command be
 </div>
 </div>
 <div class="paragraph">
-<p>Now when you get the book list again, now the book object is deleted.</p>
+<p>Now when you get the book list again, the book object is deleted.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -792,7 +792,7 @@ X-Frame-Options: SAMEORIGIN
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2019-08-06 19:28:39 UTC
+Last updated 2019-09-30 20:35:34 UTC
 </div>
 </div>
 </body>

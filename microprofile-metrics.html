@@ -454,8 +454,8 @@ public Response getAll() {
 </div>
 </div>
 <div class="paragraph">
-<p><code>@Timed</code> annotation will monitor how long the process take.
-The metadata fields on <code>@Timed</code> annotation are optional, but we have added a few name field is the name of the metric, description is used to describe the metric, unit sets the unit of the metric and absolute is used to determine if the name specified in the name field is the exact name.
+<p><code>@Timed</code> annotation will monitor how long the process takes.
+The metadata fields on <code>@Timed</code> annotation are optional, but we have added a few, name field is the name of the metric, the description is used to describe the metric, unit sets the unit of the metric and absolute is used to determine if the name specified in the name field is the exact name.
 Now Kill the Payara Micro server and start it again using the command <code>mvn clean package payara-micro:start</code> and first navigate to the <a href="http://localhost:8080/restapi/books" class="bare">http://localhost:8080/restapi/books</a>, because we need to time it and see how long the process will take, now open another tab and go to <a href="http://localhost:8080/metrics/application" class="bare">http://localhost:8080/metrics/application</a> and voila you have some metrics.</p>
 </div>
 <div class="paragraph">
@@ -467,7 +467,7 @@ Now Kill the Payara Micro server and start it again using the command <code>mvn 
 <div class="sect2">
 <h3 id="_metered"><code>@Metered</code></h3>
 <div class="paragraph">
-<p><code>@Metered</code> annotation will monitor the rate events occurred. The meta fields are optional, but it makes the life easy if we add some data to the meta fields. Change the create method to look like this.</p>
+<p><code>@Metered</code> annotation will monitor the rate events occurred. The meta fields are optional, but it makes life easy if we add some data to the meta fields. Change the create method to look like this.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -489,7 +489,7 @@ public Response create(Book book) {
 <div class="sect2">
 <h3 id="_counted"><code>@Counted</code></h3>
 <div class="paragraph">
-<p><code>@Counted</code> annotation will monitor how many times a method got invoked, and the <code>@Counted</code> annotation have a few meta fields and are optional. Update the getBook method to look like this.</p>
+<p><code>@Counted</code> annotation will monitor how many times a method gets invoked, and the <code>@Counted</code> annotation have a few meta fields and are optional. Update the getBook method to look like this.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -509,7 +509,7 @@ public Response getBook(@PathParam("id") Long id) {
 </div>
 </div>
 <div class="paragraph">
-<p>Here, like the other metrics, we have name, absolute, monotonic, displayName and description, the table below show what everything is for:</p>
+<p>Here, like the other metrics, we have name, absolute, monotonic, displayName and description, the table below shows what everything is for:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -595,7 +595,7 @@ public int getIntValue() {
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2019-08-06 19:28:39 UTC
+Last updated 2019-09-30 20:35:34 UTC
 </div>
 </div>
 </body>

@@ -529,7 +529,7 @@ table.CodeRay td.code>pre{padding:0}
 <span id="author" class="author">Hayri Cicek</span><br>
 <span id="email" class="email"><a href="mailto:hayri@kodnito.com">hayri@kodnito.com</a></span><br>
 <span id="revnumber"> 1.0.0-SNAPSHOT,</span>
-<span id="revdate">August 06, 2019</span>
+<span id="revdate">September 30, 2019</span>
 <br><span id="revremark">Draft</span>
 </div>
 <div id="toc" class="toc2">
@@ -938,7 +938,7 @@ Now open the terminal and navigate to the project directory and type the followi
 </div>
 <div class="paragraph">
 <p>We use the open source H2 database, which can be embedded in Java applications or run in the client mode.
-It’s really easy to getting started with H2 database, but I don’t think it’s a good idea to use it in production.
+It’s really easy to get started with H2 database, but I don’t think it’s a good idea to use it in production.
 This config will create an in memory based database called <code>restapiDB</code>.
 Now that we have our PayaraMicro DataSource configured it’s time to create our <code>persistence.xml</code> file.
 Inside <code>src/main/resources</code> create the <code>persistence.xml</code> file and add the following:</p>
@@ -1156,8 +1156,8 @@ Create a new file called Book.java inside com.kodnito.bookstore.entity and make 
 </div>
 <div class="paragraph">
 <p>What does everything mean in this file, we start at the beginning of the file with the <code>@ApplicationScoped</code> annotation.
-When an object is annotated with the <code>@ApplicationScoped</code> annotation, is created once for the duration of the application.
-<code>@PersistenceContext</code> annotated injects the EntityManager to be used at runtime. We have created five method to interact with the database.
+When an object is annotated with the <code>@ApplicationScoped</code> annotation, it is created once for the duration of the application.
+<code>@PersistenceContext</code> annotation injects the EntityManager to be used at runtime. We have created five methods to interact with the database.
 getAll method will get all the objects from the books table, when we want a single object we will use the findById method with an id.
 Update method like it says will update an existing object, create method will create a new Book object and delete will delete an existing Book object from the database.
 The <code>@Transactional</code> annotation provides the application the ability to control the transaction boundaries.</p>
@@ -1412,7 +1412,7 @@ X-Frame-Options: SAMEORIGIN
 </div>
 </div>
 <div class="paragraph">
-<p>The GET and the POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
+<p>The GET and POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
 Open BookStoreEndpoint and add the following for updating an existing object.</p>
 </div>
 <div class="listingblock">
@@ -1454,7 +1454,7 @@ Next is to add the Delete method to the API, open BookStoreEndpoint.java and add
 <div class="paragraph">
 <p>Here we annotate the delete method with <code>@DELETE</code> annotation, which maps HTTP DELETE verb request to this method.
 We pass an id to this method, which finds and deletes the Book objects whose id match.
-Now in the terminal, if you don’t already have quite the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.</p>
+Now in the terminal, if you haven&#8217;t quit the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.</p>
 </div>
 <div class="paragraph">
 <p>Open another terminal window and try both the Update and Delete functions.</p>
@@ -1496,7 +1496,7 @@ Next is to try the DELETE method, open a new terminal tab and use the command be
 </div>
 </div>
 <div class="paragraph">
-<p>Now when you get the book list again, now the book object is deleted.</p>
+<p>Now when you get the book list again, the book object is deleted.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1545,8 +1545,8 @@ Open the BookStoreEndpoint.java file and make the getAll method to look like thi
 </div>
 </div>
 <div class="paragraph">
-<p><code>@Timed</code> annotation will monitor how long the process take.
-The metadata fields on <code>@Timed</code> annotation are optional, but we have added a few name field is the name of the metric, description is used to describe the metric, unit sets the unit of the metric and absolute is used to determine if the name specified in the name field is the exact name.
+<p><code>@Timed</code> annotation will monitor how long the process takes.
+The metadata fields on <code>@Timed</code> annotation are optional, but we have added a few, name field is the name of the metric, the description is used to describe the metric, unit sets the unit of the metric and absolute is used to determine if the name specified in the name field is the exact name.
 Now Kill the Payara Micro server and start it again using the command <code>mvn clean package payara-micro:start</code> and first navigate to the <a href="http://localhost:8080/restapi/books" class="bare">http://localhost:8080/restapi/books</a>, because we need to time it and see how long the process will take, now open another tab and go to <a href="http://localhost:8080/metrics/application" class="bare">http://localhost:8080/metrics/application</a> and voila you have some metrics.</p>
 </div>
 <div class="paragraph">
@@ -1558,7 +1558,7 @@ Now Kill the Payara Micro server and start it again using the command <code>mvn 
 <div class="sect2">
 <h3 id="_metered"><a class="anchor" href="#_metered"></a>9.1. <code>@Metered</code></h3>
 <div class="paragraph">
-<p><code>@Metered</code> annotation will monitor the rate events occurred. The meta fields are optional, but it makes the life easy if we add some data to the meta fields. Change the create method to look like this.</p>
+<p><code>@Metered</code> annotation will monitor the rate events occurred. The meta fields are optional, but it makes life easy if we add some data to the meta fields. Change the create method to look like this.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1580,7 +1580,7 @@ Now Kill the Payara Micro server and start it again using the command <code>mvn 
 <div class="sect2">
 <h3 id="_counted"><a class="anchor" href="#_counted"></a>9.2. <code>@Counted</code></h3>
 <div class="paragraph">
-<p><code>@Counted</code> annotation will monitor how many times a method got invoked, and the <code>@Counted</code> annotation have a few meta fields and are optional. Update the getBook method to look like this.</p>
+<p><code>@Counted</code> annotation will monitor how many times a method gets invoked, and the <code>@Counted</code> annotation have a few meta fields and are optional. Update the getBook method to look like this.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1600,7 +1600,7 @@ Now Kill the Payara Micro server and start it again using the command <code>mvn 
 </div>
 </div>
 <div class="paragraph">
-<p>Here, like the other metrics, we have name, absolute, monotonic, displayName and description, the table below show what everything is for:</p>
+<p>Here, like the other metrics, we have name, absolute, monotonic, displayName and description, the table below shows what everything is for:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1766,7 +1766,7 @@ In the build section add the TomEE Maven runtime:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Now in the terminal type <code>mvn clean install</code> to download dependencies. It’s time to code our book-store-client service which will call our book-store.
+<p>Now in the terminal type <code>mvn clean install</code> to download dependencies. It’s time to code our book-store-client service which we&#8217;ll call our book-store.
 Inside <code>com.kodnito.bookstore.response</code> package create a new file called <code>BookResponse.java</code> and add the following.</p>
 </div>
 <div class="listingblock">
@@ -2024,7 +2024,7 @@ We could also use <code>@Inject</code> <code>Config</code> and use <code>getValu
 </div>
 </div>
 <div class="paragraph">
-<p>Start the <code>BookStoreClient</code> service if not already started and type the following in a new terminal windows:</p>
+<p>Start the <code>BookStoreClient</code> service if not already started and type the following in a new terminal window:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2052,7 +2052,7 @@ We could also use <code>@Inject</code> <code>Config</code> and use <code>getValu
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this chapter, we will learn how to document our RESTful APIs.
-MicroProfile OpenAPI defines interfaces to produces OpenAPI documentation from JAX-RS applications.
+MicroProfile OpenAPI defines interfaces to produce OpenAPI documentation from JAX-RS applications.
 We will add documentation to our <code>book-store</code> service application.
 Inside <code>src/main/resources/META-INF</code> create the <code>openapi.yaml</code> file and add the following :</p>
 </div>
@@ -2171,7 +2171,7 @@ Open <code>BookStoreEndpoint.java</code> and make the <code>getAll()</code> meth
 </div>
 </div>
 <div class="paragraph">
-<p>With <code>@Bulkhead</code> annotation you can limit the number of concurrent request that are made to the method</p>
+<p>With <code>@Bulkhead</code> annotation you can limit the number of concurrent requests that are made to the method</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2272,8 +2272,8 @@ Restart the <code>BookStoreClient</code> service and invoke the <code>/health</c
 </div>
 </div>
 <div class="paragraph">
-<p>Now we have our data in the checks list. We are not limited with hardcoded data, this is only for test purpose only.
-We could add check for database connection, disk space, or we could invoke <code>BookStore</code> service and check if the service is
+<p>Now we have our data in the checks list. We are not limited with hardcoded data, this is for test purpose only.
+We could add a check for database connection, disk space, or we could invoke <code>BookStore</code> service and check if the service is
 in maintenance or the service is down.
 Add the following property to the <code>microprofile-config.properties</code> file.</p>
 </div>
@@ -2462,7 +2462,7 @@ In your terminal window type the following to invoke the <code>/health</code> en
 <p>In this chapter, we will learn how to secure our services using MicroProfile JWT and Keycloak.
 Go to <a href="https://www.keycloak.org/downloads.html" class="bare">https://www.keycloak.org/downloads.html</a> and download latest Standalone server distribution.
 Unzip the zip file and open a new terminal window and navigate to the keycloak folder.
-Now type following command to start the Keycloak server:</p>
+Now type the following command to start the Keycloak server:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2617,7 +2617,7 @@ You find this in the <code>Credentials</code> menu.</p>
 </div>
 <div class="paragraph">
 <p>Now click on <code>Send</code> and you will retrieve access token. Copy the access token and open a new Postman tab.
-Now, make an <code>GET</code> request to <code><a href="http://localhost:8081/restapi/books/mp-config" class="bare">http://localhost:8081/restapi/books/mp-config</a></code>, if you don&#8217;t send the request with access token,
+Now, make a <code>GET</code> request to <code><a href="http://localhost:8081/restapi/books/mp-config" class="bare">http://localhost:8081/restapi/books/mp-config</a></code>, if you don&#8217;t send the request with access token,
 you will get <code>401 Unauthorized</code>.<br>
 In <code>Type</code> dropdown menu, choose <code>Bearer Token</code> and paste the token in <code>Token</code> field.<br>
 Now click on <code>Send</code> again and you will now get <code>200 OK</code>.</p>
@@ -2842,7 +2842,7 @@ Depends on which server you choose, use one of the following commands to start t
 <div id="footer">
 <div id="footer-text">
  1.0.0-SNAPSHOT<br>
-Last updated 2019-08-06 19:28:39 UTC
+Last updated 2019-09-30 20:35:34 UTC
 </div>
 </div>
 </body>

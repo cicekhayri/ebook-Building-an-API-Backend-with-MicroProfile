@@ -58,8 +58,8 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 {"checks":[{"data":{"free":"900MB"},"name":"diskspace","state":"UP"}],"outcome":"UP","status":"UP"}
 ----
 
-Now we have our data in the checks list. We are not limited with hardcoded data, this is only for test purpose only.
-We could add check for database connection, disk space, or we could invoke `BookStore` service and check if the service is
+Now we have our data in the checks list. We are not limited with hardcoded data, this is for test purpose only.
+We could add a check for database connection, disk space, or we could invoke `BookStore` service and check if the service is
 in maintenance or the service is down.
 Add the following property to the `microprofile-config.properties` file.
 

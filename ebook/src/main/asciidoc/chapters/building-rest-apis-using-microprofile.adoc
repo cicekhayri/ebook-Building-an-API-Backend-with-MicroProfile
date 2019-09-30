@@ -173,7 +173,7 @@ X-Frame-Options: SAMEORIGIN
 {"description":"this is my second book description","id":2,"isbn":"13xxxxxxxx","language":"English","pages":0,"price":0.0,"publisher":"None Yet","title":"This is my second test book"}%
 ----
 
-The GET and the POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
+The GET and POST methods seems to work and it’s time to create the rest of the methods, PUT and DELETE.
 Open BookStoreEndpoint and add the following for updating an existing object.
 
 [source,java]
@@ -213,7 +213,7 @@ public Response delete(@PathParam("id") Long id) {
 
 Here we annotate the delete method with `@DELETE` annotation, which maps HTTP DELETE verb request to this method. 
 We pass an id to this method, which finds and deletes the Book objects whose id match.
-Now in the terminal, if you don’t already have quite the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.
+Now in the terminal, if you haven't quit the Payara Micro server, then quit by Ctrl+c and start again using the same mvn clean package payara-micro:start command.
 
 Open another terminal window and try both the Update and Delete functions.
 
@@ -249,7 +249,7 @@ Next is to try the DELETE method, open a new terminal tab and use the command be
 ----
 curl -X DELETE http://localhost:8080/restapi/books/2
 ----
-Now when you get the book list again, now the book object is deleted.
+Now when you get the book list again, the book object is deleted.
 
 [source, bash]
 ----

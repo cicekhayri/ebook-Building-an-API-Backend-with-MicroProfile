@@ -3,7 +3,7 @@
 In this chapter, we will learn how to secure our services using MicroProfile JWT and Keycloak.
 Go to https://www.keycloak.org/downloads.html and download latest Standalone server distribution.
 Unzip the zip file and open a new terminal window and navigate to the keycloak folder.
-Now type following command to start the Keycloak server:
+Now type the following command to start the Keycloak server:
 
 [source, bash]
 ----
@@ -121,7 +121,7 @@ You find this in the `Credentials` menu.
 image:../images/keycloak-client-secret.png[Keycloak Client Secret, 500,500]
 
 Now click on `Send` and you will retrieve access token. Copy the access token and open a new Postman tab.
-Now, make an `GET` request to `http://localhost:8081/restapi/books/mp-config`, if you don't send the request with access token,
+Now, make a `GET` request to `http://localhost:8081/restapi/books/mp-config`, if you don't send the request with access token,
 you will get `401 Unauthorized`. +
 In `Type` dropdown menu, choose `Bearer Token` and paste the token in `Token` field. +
 Now click on `Send` again and you will now get `200 OK`.

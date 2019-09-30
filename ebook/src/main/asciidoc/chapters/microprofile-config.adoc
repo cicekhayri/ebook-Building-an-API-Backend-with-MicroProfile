@@ -70,7 +70,7 @@ public class BookStoreEndpoint {
 }
 ----
 
-Start the `BookStoreClient` service if not already started and type the following in a new terminal windows:
+Start the `BookStoreClient` service if not already started and type the following in a new terminal window:
 
 [source, bash]
 ----

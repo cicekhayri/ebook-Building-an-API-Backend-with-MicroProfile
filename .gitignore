@@ -9,3 +9,5 @@
 .settings/
 .idea/
 *.iml
+.DS_Store
+ebook/.DS_Store

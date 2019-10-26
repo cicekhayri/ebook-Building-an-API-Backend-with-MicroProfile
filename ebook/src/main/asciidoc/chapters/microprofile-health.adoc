@@ -24,11 +24,13 @@ Create a new file called `BookStoreClientHealthCheck.java` inside `com.kodnito.b
 package com.kodnito.bookstore.rest;
 
 import javax.enterprise.context.ApplicationScoped;
-import org.eclipse.microprofile.health.Health;
+import org.eclipse.microprofile.health.Liveness;
+import org.eclipse.microprofile.health.Readiness;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 
-@Health
+@Liveness
+@Readiness
 @ApplicationScoped
 public class BookStoreClientHealthCheck implements HealthCheck {
 
@@ -43,7 +45,7 @@ public class BookStoreClientHealthCheck implements HealthCheck {
     
 }
 ----
-Beans annotated with `@Health` and paired with `@ApplicationScoped` are discovered automatically.
+Beans annotated with `@Liveness` or `@Readiness` and paired with `@ApplicationScoped` are discovered automatically.
 We implement the `HealthCheck` interface, and we override the `call()` method.
 Restart the `BookStoreClient` service and invoke the `/health` endpoint.
 
@@ -72,7 +74,7 @@ And now update the `BookStoreClientHealthCheck.java` to look like the following
 
 [source, java]
 ----
-@Health
+@Readiness
 @ApplicationScoped
 public class BookStoreClientHealthCheck implements HealthCheck {
 
@@ -146,7 +148,7 @@ Here is an example of how to check database connection health:
 [source, java]
 ----
 @Log
-@Health
+@Readiness
 @ApplicationScoped
 public class MembershipHealthCheck implements HealthCheck {
     

@@ -456,7 +456,7 @@ Open the pom.xml and add the following:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;dependency&gt;
-    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+        &lt;groupId&gt;com.h2database&lt;/groupId&gt;
         &lt;artifactId&gt;h2&lt;/artifactId&gt;
         &lt;version&gt;1.4.196&lt;/version&gt;
         &lt;scope&gt;runtime&lt;/scope&gt;
@@ -467,9 +467,10 @@ Open the pom.xml and add the following:</p>
         &lt;version&gt;2.7.4&lt;/version&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
-        &lt;groupId&gt;javax.transaction&lt;/groupId&gt;
-        &lt;artifactId&gt;javax.transaction-api&lt;/artifactId&gt;
-        &lt;version&gt;1.3&lt;/version&gt;
+        &lt;groupId&gt;jakarta.platform&lt;/groupId&gt;
+        &lt;artifactId&gt;jakarta.jakartaee-api&lt;/artifactId&gt;
+        &lt;version&gt;${jakarta.version}&lt;/version&gt;
+        &lt;scope&gt;provided&lt;/scope&gt;
     &lt;/dependency&gt;
 
     &lt;plugins&gt;
@@ -504,9 +505,15 @@ Open the pom.xml and add the following:</p>
     &lt;packaging&gt;war&lt;/packaging&gt;
     &lt;dependencies&gt;
         &lt;dependency&gt;
+            &lt;groupId&gt;jakarta.platform&lt;/groupId&gt;
+            &lt;artifactId&gt;jakarta.jakartaee-api&lt;/artifactId&gt;
+            &lt;version&gt;${jakarta.version}&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
             &lt;groupId&gt;org.eclipse.microprofile&lt;/groupId&gt;
             &lt;artifactId&gt;microprofile&lt;/artifactId&gt;
-            &lt;version&gt;2.0.1&lt;/version&gt;
+            &lt;version&gt;${microprofile.version}&lt;/version&gt;
             &lt;type&gt;pom&lt;/type&gt;
             &lt;scope&gt;provided&lt;/scope&gt;
         &lt;/dependency&gt;
@@ -520,11 +527,6 @@ Open the pom.xml and add the following:</p>
             &lt;groupId&gt;org.eclipse.persistence&lt;/groupId&gt;
             &lt;artifactId&gt;eclipselink&lt;/artifactId&gt;
             &lt;version&gt;2.7.4&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;javax.transaction&lt;/groupId&gt;
-            &lt;artifactId&gt;javax.transaction-api&lt;/artifactId&gt;
-            &lt;version&gt;1.3&lt;/version&gt;
         &lt;/dependency&gt;
     &lt;/dependencies&gt;
     &lt;build&gt;
@@ -550,7 +552,9 @@ Open the pom.xml and add the following:</p>
         &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
         &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
         &lt;failOnMissingWebXml&gt;false&lt;/failOnMissingWebXml&gt;
-    &lt;version.payara.micro&gt;5.183&lt;/version.payara.micro&gt;
+        &lt;version.payara.micro&gt;5.193&lt;/version.payara.micro&gt;
+        &lt;jakarta.version&gt;8.0.0&lt;/jakarta.version&gt;
+        &lt;microprofile.version&gt;2.1&lt;/microprofile.version&gt;
     &lt;/properties&gt;
 &lt;/project&gt;</code></pre>
 </div>
@@ -686,7 +690,7 @@ The <code>@Transactional</code> annotation provides the application the ability 
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2019-11-01 15:54:08 UTC
+Last updated 2019-11-01 16:12:18 UTC
 </div>
 </div>
 </body>

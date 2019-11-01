@@ -826,7 +826,7 @@ Open the pom.xml and add the following:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml">    <span class="tag">&lt;dependency&gt;</span>
-    <span class="tag">&lt;groupId&gt;</span>com.h2database<span class="tag">&lt;/groupId&gt;</span>
+        <span class="tag">&lt;groupId&gt;</span>com.h2database<span class="tag">&lt;/groupId&gt;</span>
         <span class="tag">&lt;artifactId&gt;</span>h2<span class="tag">&lt;/artifactId&gt;</span>
         <span class="tag">&lt;version&gt;</span>1.4.196<span class="tag">&lt;/version&gt;</span>
         <span class="tag">&lt;scope&gt;</span>runtime<span class="tag">&lt;/scope&gt;</span>
@@ -837,9 +837,10 @@ Open the pom.xml and add the following:</p>
         <span class="tag">&lt;version&gt;</span>2.7.4<span class="tag">&lt;/version&gt;</span>
     <span class="tag">&lt;/dependency&gt;</span>
     <span class="tag">&lt;dependency&gt;</span>
-        <span class="tag">&lt;groupId&gt;</span>javax.transaction<span class="tag">&lt;/groupId&gt;</span>
-        <span class="tag">&lt;artifactId&gt;</span>javax.transaction-api<span class="tag">&lt;/artifactId&gt;</span>
-        <span class="tag">&lt;version&gt;</span>1.3<span class="tag">&lt;/version&gt;</span>
+        <span class="tag">&lt;groupId&gt;</span>jakarta.platform<span class="tag">&lt;/groupId&gt;</span>
+        <span class="tag">&lt;artifactId&gt;</span>jakarta.jakartaee-api<span class="tag">&lt;/artifactId&gt;</span>
+        <span class="tag">&lt;version&gt;</span>${jakarta.version}<span class="tag">&lt;/version&gt;</span>
+        <span class="tag">&lt;scope&gt;</span>provided<span class="tag">&lt;/scope&gt;</span>
     <span class="tag">&lt;/dependency&gt;</span>
 
     <span class="tag">&lt;plugins&gt;</span>
@@ -874,9 +875,15 @@ Open the pom.xml and add the following:</p>
     <span class="tag">&lt;packaging&gt;</span>war<span class="tag">&lt;/packaging&gt;</span>
     <span class="tag">&lt;dependencies&gt;</span>
         <span class="tag">&lt;dependency&gt;</span>
+            <span class="tag">&lt;groupId&gt;</span>jakarta.platform<span class="tag">&lt;/groupId&gt;</span>
+            <span class="tag">&lt;artifactId&gt;</span>jakarta.jakartaee-api<span class="tag">&lt;/artifactId&gt;</span>
+            <span class="tag">&lt;version&gt;</span>${jakarta.version}<span class="tag">&lt;/version&gt;</span>
+            <span class="tag">&lt;scope&gt;</span>provided<span class="tag">&lt;/scope&gt;</span>
+        <span class="tag">&lt;/dependency&gt;</span>
+        <span class="tag">&lt;dependency&gt;</span>
             <span class="tag">&lt;groupId&gt;</span>org.eclipse.microprofile<span class="tag">&lt;/groupId&gt;</span>
             <span class="tag">&lt;artifactId&gt;</span>microprofile<span class="tag">&lt;/artifactId&gt;</span>
-            <span class="tag">&lt;version&gt;</span>2.0.1<span class="tag">&lt;/version&gt;</span>
+            <span class="tag">&lt;version&gt;</span>${microprofile.version}<span class="tag">&lt;/version&gt;</span>
             <span class="tag">&lt;type&gt;</span>pom<span class="tag">&lt;/type&gt;</span>
             <span class="tag">&lt;scope&gt;</span>provided<span class="tag">&lt;/scope&gt;</span>
         <span class="tag">&lt;/dependency&gt;</span>
@@ -890,11 +897,6 @@ Open the pom.xml and add the following:</p>
             <span class="tag">&lt;groupId&gt;</span>org.eclipse.persistence<span class="tag">&lt;/groupId&gt;</span>
             <span class="tag">&lt;artifactId&gt;</span>eclipselink<span class="tag">&lt;/artifactId&gt;</span>
             <span class="tag">&lt;version&gt;</span>2.7.4<span class="tag">&lt;/version&gt;</span>
-        <span class="tag">&lt;/dependency&gt;</span>
-        <span class="tag">&lt;dependency&gt;</span>
-            <span class="tag">&lt;groupId&gt;</span>javax.transaction<span class="tag">&lt;/groupId&gt;</span>
-            <span class="tag">&lt;artifactId&gt;</span>javax.transaction-api<span class="tag">&lt;/artifactId&gt;</span>
-            <span class="tag">&lt;version&gt;</span>1.3<span class="tag">&lt;/version&gt;</span>
         <span class="tag">&lt;/dependency&gt;</span>
     <span class="tag">&lt;/dependencies&gt;</span>
     <span class="tag">&lt;build&gt;</span>
@@ -920,7 +922,9 @@ Open the pom.xml and add the following:</p>
         <span class="tag">&lt;maven.compiler.source&gt;</span>1.8<span class="tag">&lt;/maven.compiler.source&gt;</span>
         <span class="tag">&lt;maven.compiler.target&gt;</span>1.8<span class="tag">&lt;/maven.compiler.target&gt;</span>
         <span class="tag">&lt;failOnMissingWebXml&gt;</span>false<span class="tag">&lt;/failOnMissingWebXml&gt;</span>
-    <span class="tag">&lt;version.payara.micro&gt;</span>5.183<span class="tag">&lt;/version.payara.micro&gt;</span>
+        <span class="tag">&lt;version.payara.micro&gt;</span>5.193<span class="tag">&lt;/version.payara.micro&gt;</span>
+        <span class="tag">&lt;jakarta.version&gt;</span>8.0.0<span class="tag">&lt;/jakarta.version&gt;</span>
+        <span class="tag">&lt;microprofile.version&gt;</span>2.1<span class="tag">&lt;/microprofile.version&gt;</span>
     <span class="tag">&lt;/properties&gt;</span>
 <span class="tag">&lt;/project&gt;</span></code></pre>
 </div>
@@ -2866,7 +2870,7 @@ Depends on which server you choose, use one of the following commands to start t
 <div id="footer">
 <div id="footer-text">
  1.0.0-SNAPSHOT<br>
-Last updated 2019-11-01 15:54:08 UTC
+Last updated 2019-11-01 16:12:18 UTC
 </div>
 </div>
 </body>

@@ -17,7 +17,7 @@ Open the pom.xml and add the following:
 [source,xml]
 ----
     <dependency>
-    <groupId>com.h2database</groupId>
+        <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>1.4.196</version>
         <scope>runtime</scope>
@@ -28,9 +28,10 @@ Open the pom.xml and add the following:
         <version>2.7.4</version>
     </dependency>
     <dependency>
-        <groupId>javax.transaction</groupId>
-        <artifactId>javax.transaction-api</artifactId>
-        <version>1.3</version>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
+        <version>${jakarta.version}</version>
+        <scope>provided</scope>
     </dependency>
 
     <plugins>
@@ -64,9 +65,15 @@ Your pom.xml should look like this:
     <packaging>war</packaging>
     <dependencies>
         <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakarta.version}</version>
+            <scope>provided</scope>
+        </dependency> 
+        <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>2.0.1</version>
+            <version>${microprofile.version}</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
@@ -80,11 +87,6 @@ Your pom.xml should look like this:
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>2.7.4</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>javax.transaction-api</artifactId>
-            <version>1.3</version>
         </dependency>
     </dependencies>
     <build>
@@ -110,7 +112,9 @@ Your pom.xml should look like this:
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-    <version.payara.micro>5.183</version.payara.micro>
+        <version.payara.micro>5.193</version.payara.micro>
+        <jakarta.version>8.0.0</jakarta.version>
+        <microprofile.version>2.1</microprofile.version>
     </properties>
 </project>
 ----

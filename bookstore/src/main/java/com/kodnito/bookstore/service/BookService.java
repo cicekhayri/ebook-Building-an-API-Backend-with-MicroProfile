@@ -14,7 +14,8 @@ public class BookService {
     EntityManager em;
 
     public List getAll() {
-        return em.createNamedQuery("Book.findAll", Book.class).getResultList();
+        List<Book> books = em.createNamedQuery("Book.findAll", Book.class).getResultList();
+        return books != null ? books : new ArrayList<>();
     }
 
     public Book findById(Long id) {

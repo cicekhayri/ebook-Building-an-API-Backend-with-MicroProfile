@@ -1,6 +1,7 @@
 package com.kodnito.bookstore.service;
 
 import com.kodnito.bookstore.entity.Book;
+import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;

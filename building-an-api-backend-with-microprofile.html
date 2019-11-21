@@ -529,7 +529,7 @@ table.CodeRay td.code>pre{padding:0}
 <span id="author" class="author">Hayri Cicek</span><br>
 <span id="email" class="email"><a href="mailto:hayri@kodnito.com">hayri@kodnito.com</a></span><br>
 <span id="revnumber"> 1.0.0-SNAPSHOT,</span>
-<span id="revdate">November 01, 2019</span>
+<span id="revdate">November 21, 2019</span>
 <br><span id="revremark">Draft</span>
 </div>
 <div id="toc" class="toc2">
@@ -1143,6 +1143,7 @@ Create a new file called Book.java inside com.kodnito.bookstore.entity and make 
 <pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">package</span> <span class="namespace">com.kodnito.bookstore.service</span>;
 
 <span class="keyword">import</span> <span class="include">com.kodnito.bookstore.entity.Book</span>;
+<span class="keyword">import</span> <span class="include">java.util.ArrayList</span>;
 <span class="keyword">import</span> <span class="include">java.util.List</span>;
 <span class="keyword">import</span> <span class="include">javax.enterprise.context.ApplicationScoped</span>;
 <span class="keyword">import</span> <span class="include">javax.persistence.EntityManager</span>;
@@ -1156,7 +1157,8 @@ Create a new file called Book.java inside com.kodnito.bookstore.entity and make 
     EntityManager em;
 
     <span class="directive">public</span> <span class="predefined-type">List</span> getAll() {
-        <span class="keyword">return</span> em.createNamedQuery(<span class="string"><span class="delimiter">&quot;</span><span class="content">Book.findAll</span><span class="delimiter">&quot;</span></span>, <span class="predefined-type">Book</span>.class).getResultList();
+        <span class="predefined-type">List</span>&lt;<span class="predefined-type">Book</span>&gt; books = em.createNamedQuery(<span class="string"><span class="delimiter">&quot;</span><span class="content">Book.findAll</span><span class="delimiter">&quot;</span></span>, <span class="predefined-type">Book</span>.class).getResultList();
+        <span class="keyword">return</span> books != <span class="predefined-constant">null</span> ? books : <span class="keyword">new</span> <span class="predefined-type">ArrayList</span>&lt;&gt;();
     }
 
     <span class="directive">public</span> <span class="predefined-type">Book</span> findById(<span class="predefined-type">Long</span> id) {
@@ -2870,7 +2872,7 @@ Depends on which server you choose, use one of the following commands to start t
 <div id="footer">
 <div id="footer-text">
  1.0.0-SNAPSHOT<br>
-Last updated 2019-11-01 16:12:18 UTC
+Last updated 2019-11-21 07:32:29 UTC
 </div>
 </div>
 </body>

@@ -1,6 +1,7 @@
 package com.kodnito.bookstore.service;
 
 import com.kodnito.bookstore.entity.Book;
+import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -14,7 +15,8 @@ public class BookService {
     EntityManager em;
 
     public List getAll() {
-        return em.createNamedQuery("Book.findAll", Book.class).getResultList();
+        List<Book> books = em.createNamedQuery("Book.findAll", Book.class).getResultList();
+        return books != null ? books : new ArrayList<>();
     }
 
     public Book findById(Long id) {

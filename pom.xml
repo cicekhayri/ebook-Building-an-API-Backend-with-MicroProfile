@@ -54,7 +54,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/cicekhayri/ebook-Building-an-API-Backend-with-MicroProfile.git</connection>
-        <developerConnection>scm:git:git@github.com:eclipse/ebook-Building-an-API-Backend-with-MicroProfile.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:cicekhayri/ebook-Building-an-API-Backend-with-MicroProfile.git</developerConnection>
 	<url>https://github.com/cicekhayri/ebook-Building-an-API-Backend-with-MicroProfile</url>
         <tag>HEAD</tag>
     </scm>

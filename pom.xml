@@ -19,7 +19,7 @@
 
     <groupId>com.kodnito</groupId>
     <artifactId>api-backend-microprofile-ebook</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     
     <name>API Backend with MicroProfile</name>
@@ -56,7 +56,7 @@
         <connection>scm:git:https://github.com/cicekhayri/ebook-Building-an-API-Backend-with-MicroProfile.git</connection>
         <developerConnection>scm:git:git@github.com:cicekhayri/ebook-Building-an-API-Backend-with-MicroProfile.git</developerConnection>
 	<url>https://github.com/cicekhayri/ebook-Building-an-API-Backend-with-MicroProfile</url>
-        <tag>HEAD</tag>
+        <tag>api-backend-microprofile-ebook-1.0.0</tag>
     </scm>
 
     <distributionManagement>

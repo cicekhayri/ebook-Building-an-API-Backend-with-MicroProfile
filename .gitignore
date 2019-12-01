@@ -7,5 +7,7 @@
 /bookstore-client/.classpath
 .project
 .settings/
-.idea/
+*.idea/
 *.iml
+*.vscode
+*.DS_Store

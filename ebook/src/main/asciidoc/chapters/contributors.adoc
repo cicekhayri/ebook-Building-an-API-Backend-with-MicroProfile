@@ -9,4 +9,5 @@
 |Peggy Blevins |  |https://github.com/mblevins65[*GitHub*]    |
 |Ondro Mihályi |https://twitter.com/OndroMih[@OndroMih]  |https://github.com/OndroMih[*GitHub*]    |https://ondro.inginea.eu/[*Website*]
 |Rudy De Busscher |https://twitter.com/rdebusscher[@rdebusscher]  |https://github.com/rdebusscher[*GitHub*]    |https://www.atbash.be/[*Website*]
+|Tadeo Rivera-Pineda |  |https://github.com/xtecuan[*GitHub*]  |
 |========================================================

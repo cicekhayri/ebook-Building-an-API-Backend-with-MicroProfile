@@ -19,11 +19,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - uses: majkrzak/create-release@master
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
       with:
-        token: ${{github.token}}
-        name: My lovely release
-        code: latest
-        prerelease: true
-        assets: >
-          building-an-api-backend-with-microprofile.pdf:ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
+        asset_name: building-an-api-backend-with-microprofile.pdf
+        tag: ${{ github.ref }}
+        overwrite: false

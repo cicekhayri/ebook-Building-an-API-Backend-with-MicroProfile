@@ -5,7 +5,8 @@ on:
   push:
     branches:
     - master
- 
+    tags:
+    - 'v*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,14 +22,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Get the version
-      id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+#     - name: Get the version
+#       id: get_version
+#       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ steps.get_version.outputs.VERSION }}
+#         automatic_release_tag: ${{ steps.get_version.outputs.VERSION }}
         prerelease: true
 #         title: "Development Build"
         files: |

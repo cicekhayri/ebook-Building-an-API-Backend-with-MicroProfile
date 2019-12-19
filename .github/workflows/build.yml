@@ -1,12 +1,12 @@
 ## This allows Github actions to build this project and publish the PDF to github.
 name: Build and Tag
 
-on:
-  push:
-    branches:
-    - master
-    tags:
-    - 'v*'
+on: [push]
+#   push:
+#     branches:
+#     - master
+#     tags:
+#     - 'v*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +25,19 @@ jobs:
 #     - name: Get the version
 #       id: get_version
 #       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+    - uses: paulhatch/semantic-version@v1-beta
+      with:
+        # The branch to count commits on
+        branch: "master"
+        # The prefix to use to identify tags
+        tag_prefix: "v"
+        # A string which, if present in a git commit, indicates that a change represents a major (breaking) change
+        major_pattern: "(MAJOR)"
+        # Same as above except indicating a minor change
+        minor_pattern: "(MINOR)"
+        # A string to determine the format of the version output
+        format: "${major}.${minor}.${patch}-prerelease.${increment}"
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:

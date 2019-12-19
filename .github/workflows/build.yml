@@ -1,8 +1,11 @@
 ## This allows Github actions to build this project and publish the PDF to github.
 name: Build and Tag
 
-on: [push]
-
+on:
+  push:
+    branches:
+    - master
+ 
 jobs:
   build:
     runs-on: ubuntu-latest

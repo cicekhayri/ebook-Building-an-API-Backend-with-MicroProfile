@@ -40,11 +40,11 @@ jobs:
 #         files: |
 #           ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
 
-#     - name: Upload binaries to release
-#       uses: svenstaro/upload-release-action@v1-release
-#       with:
-#         repo_token: ${{ secrets.GITHUB_TOKEN }}
-#         file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
-#         asset_name: building-an-api-backend-with-microprofile.pdf
-#         tag: ${{ github.ref }}
-#         overwrite: true
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
+        asset_name: building-an-api-backend-with-microprofile.pdf
+        tag: ${{ github.ref }}
+        overwrite: true

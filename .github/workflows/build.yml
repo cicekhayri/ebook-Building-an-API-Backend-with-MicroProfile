@@ -31,14 +31,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
 
-    - uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ new_tag }}
-        prerelease: true
-#         title: "Development Build"
-        files: |
-          ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
+#     - uses: "marvinpinto/action-automatic-releases@latest"
+#       with:
+#         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+#         automatic_release_tag: ${{ new_tag }}
+#         prerelease: true
+# #         title: "Development Build"
+#         files: |
+#           ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
 
 #     - name: Upload binaries to release
 #       uses: svenstaro/upload-release-action@v1-release

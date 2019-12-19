@@ -24,10 +24,9 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         prerelease: true
-        title: "Development Build"
+#         title: "Development Build"
         files: |
-          *.pdf
-          *.jar
+          ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
 
 #     - name: Upload binaries to release
 #       uses: svenstaro/upload-release-action@v1-release

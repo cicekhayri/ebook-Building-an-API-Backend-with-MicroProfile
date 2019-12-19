@@ -19,24 +19,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Get timestamp
-      uses: gerred/actions/current-time@master
-      id: current-time
-
-    - name: Run string replace
-      uses: frabert/replace-string-action@master
-      id: format-time
+    - uses: majkrzak/create-release@master
       with:
-        pattern: '[:\.]+'
-        string: "${{ steps.current-time.outputs.time }}"
-        replace-with: '_'
-        flags: 'g'  
-
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
-        asset_name: building-an-api-backend-with-microprofile.pdf
-        tag: ${{ steps.format-time.outputs.replaced }}
-        overwrite: false
+        token: ${{github.token}}
+        name: My lovely release
+        code: latest
+        prerelease: true
+        assets: >
+          building-an-api-backend-with-microprofile.pdf:ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf

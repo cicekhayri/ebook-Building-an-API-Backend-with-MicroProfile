@@ -26,10 +26,12 @@ jobs:
 #       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
     - name: Bump version and push tag
+      id: bump
       uses: anothrNick/github-tag-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
+        DEFAULT_BUMP: patch
 
 #     - uses: "marvinpinto/action-automatic-releases@latest"
 #       with:
@@ -46,5 +48,5 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
         asset_name: building-an-api-backend-with-microprofile.pdf
-        tag: ${{ github.ref }}
+        tag: ${{ steps.bump.outputs.new_tag }}
         overwrite: true

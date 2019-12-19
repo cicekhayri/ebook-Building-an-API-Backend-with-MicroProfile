@@ -19,11 +19,42 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
+## This allows Github actions to build this project and publish the PDF to github.
+name: Build and Tag
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
-        asset_name: building-an-api-backend-with-microprofile.pdf
-        tag: ${{ github.ref }}
-        overwrite: true
+        java-version: 1.8
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Development Build"
+        files: |
+          *.pdf
+          *.jar
+
+#     - name: Upload binaries to release
+#       uses: svenstaro/upload-release-action@v1-release
+#       with:
+#         repo_token: ${{ secrets.GITHUB_TOKEN }}
+#         file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
+#         asset_name: building-an-api-backend-with-microprofile.pdf
+#         tag: ${{ github.ref }}
+#         overwrite: true

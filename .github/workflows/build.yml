@@ -21,10 +21,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-#     - name: Get the version
-#       id: get_version
-#       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
     - name: Bump version and push tag
       id: bump
       uses: anothrNick/github-tag-action@master
@@ -32,15 +28,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         DEFAULT_BUMP: patch
-
-#     - uses: "marvinpinto/action-automatic-releases@latest"
-#       with:
-#         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-#         automatic_release_tag: ${{ new_tag }}
-#         prerelease: true
-# #         title: "Development Build"
-#         files: |
-#           ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release

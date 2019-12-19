@@ -26,4 +26,4 @@ jobs:
         file: ebook/target/generated-docs/building-an-api-backend-with-microprofile.pdf
         asset_name: building-an-api-backend-with-microprofile.pdf
         tag: ${{ github.ref }}
-        overwrite: false
+        overwrite: true
